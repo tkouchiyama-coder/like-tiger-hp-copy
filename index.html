@@ -8,15 +8,25 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@600;700;800&family=Reggae+One&family=Yusei+Magic&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@600;700;800&family=Reggae+One&family=Yuji+Boku&family=Yusei+Magic&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="lp-home">
+
+<!-- ============================================================
+     入口：公式ロゴだけを見せるファーストビュー
+============================================================ -->
+<section class="intro-gate" id="intro" aria-label="株式会社LikeTiger">
+  <div class="intro-gate__inner">
+    <img class="intro-gate__logo" src="images/logo-black.png" alt="株式会社LikeTiger ロゴ">
+    <a class="intro-gate__scroll" href="#top" aria-label="トップビジュアルへスクロール">↓</a>
+  </div>
+</section>
 
 <!-- ============================================================
      セクション1：トップ（ヒーロー）
 ============================================================ -->
-<section class="hero" id="top">
+<section class="hero hero--poster" id="top">
   <a class="hero__brand" href="#top" aria-label="株式会社LikeTiger">
     <img src="images/logo-black.png" alt="株式会社LikeTiger ロゴ">
   </a>
@@ -27,6 +37,10 @@
     <a href="countries.html">TRAVEL LOG</a>
     <a href="#contact" class="site-nav__cta">お問い合わせ</a>
   </nav>
+
+  <div class="hero__poster" aria-hidden="true">
+    <img src="images/hero-generated-journey.jpg" alt="">
+  </div>
 
   <!-- 筆ブラシの黒い飛沫（装飾） -->
   <div class="brush brush--left" aria-hidden="true"></div>
@@ -51,24 +65,66 @@
 
   <div class="hero__inner">
     <div class="hero__text reveal">
+      <p class="hero__company-label">株式会社LikeTiger</p>
       <h1 class="hero__title">
-        <span class="hero__company-ja">株式会社</span>
-        <span class="hero__company"><i class="white-brush" aria-hidden="true"></i>LikeTiger</span>
+        <span>Sales is</span>
+        <span>Journey</span>
       </h1>
-      <p class="hero__subtitle"><span>Sales is Journey</span></p>
-      <p class="hero__tagline">― 世界を旅する営業マン ―</p>
+      <p class="hero__tagline">世界を旅する営業マン</p>
       <p class="hero__copy">
         挑戦が、人生を動かす。世界を舞台に、出会いと価値を届け、<br>
         自分を、未来を、アップデートし続けよう。
       </p>
-      <a href="#contact" class="hero__cta">お問い合わせはこちら <span aria-hidden="true">&#8594;</span></a>
     </div>
   </div>
-
   <!-- 右側：公式キャラクター らい太くんがご案内 -->
   <div class="hero__raita reveal reveal--delay1">
     <img src="images/raita-guide.png" alt="LikeTiger公式キャラクター らい太くんがご案内します">
     <span class="hero__raita-label">公式キャラクター らい太くん</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     課題訴求：誰に頼めばいいかわからない
+============================================================ -->
+<section class="issue-callout" id="issue">
+  <div class="issue-callout__bg" aria-hidden="true">
+    <span class="issue-callout__paint issue-callout__paint--left"></span>
+    <span class="issue-callout__paint issue-callout__paint--right"></span>
+    <span class="issue-callout__paper-plane"></span>
+    <span class="issue-callout__globe"></span>
+  </div>
+  <div class="issue-callout__inner reveal">
+    <p class="issue-callout__paper">そのビジネス課題、</p>
+    <h2 class="issue-callout__title">誰に頼めばいいかわからない</h2>
+    <p class="issue-callout__lead">
+      複雑な課題も、まだ言葉になっていない悩みも。まずはLikeTigerに話してみてください。
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     ビジョン
+============================================================ -->
+<section class="vision-lp" id="vision">
+  <span class="section-tag">ビジョン</span>
+  <div class="vision-lp__inner">
+    <div class="vision-lp__copy reveal">
+      <p class="vision-lp__eyebrow">LikeTiger が目指すのは、<br><strong>ちょっと変わった</strong>会社です。</p>
+      <h2 class="vision-lp__title">
+        <span>世界一</span>
+        <span><b>変人</b>が輝く会社</span>
+      </h2>
+      <p class="vision-lp__text">
+        常識を疑い、枠にとらわれず、好きなことに本気で向き合う。
+        個性あふれる仲間が集まり、挑戦から価値を生み出し、世界をより良く変えていく会社を目指します。
+      </p>
+    </div>
+    <div class="vision-lp__photo reveal reveal--delay1">
+      <img src="images/pickleball.jpg" alt="LikeTigerの活動風景">
+      <span class="hand-note hand-note--curiosity">好奇心</span>
+      <span class="hand-note hand-note--link">つながり</span>
+    </div>
   </div>
 </section>
 
@@ -166,6 +222,51 @@
 </section>
 
 <!-- ============================================================
+     旅コンセプト
+============================================================ -->
+<section class="journey-band" id="journey">
+  <div class="journey-band__bg" aria-hidden="true">
+    <span class="journey-band__skyline"></span>
+    <span class="journey-band__sun"></span>
+    <span class="journey-band__traveler journey-band__traveler--1"></span>
+    <span class="journey-band__traveler journey-band__traveler--2"></span>
+  </div>
+  <div class="journey-band__inner reveal">
+    <h2 class="journey-band__title">人生も、営業も、<span>旅</span>だ。</h2>
+    <p class="journey-band__lead">
+      出会いが進路を変え、挑戦が景色を変える。ひとつひとつの提案が、次の目的地につながっていく。
+    </p>
+    <p class="journey-band__marker">だからこそ、営業はただ売ることではなく、未来を切り拓く旅になる。</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     活動風景
+============================================================ -->
+<section class="activity-scenes" id="activity-scenes">
+  <span class="section-tag">活動風景</span>
+  <div class="activity-scenes__inner">
+    <div class="activity-scenes__copy reveal">
+      <p class="activity-scenes__label">FIELD & COMMUNITY</p>
+      <h2 class="activity-scenes__title">現場に出て、人と出会い、<span>価値を届ける。</span></h2>
+      <p class="activity-scenes__text">
+        農業資材の現場、地域コミュニティ、営業のご相談まで。机上の提案だけで終わらず、実際の活動から課題と可能性を見つけていきます。
+      </p>
+    </div>
+    <div class="activity-scenes__photos reveal reveal--delay1">
+      <figure class="activity-photo activity-photo--large">
+        <img src="images/curry-field.jpg" alt="カレー畑での活動風景">
+        <figcaption>農業・ライフスタイル事業の現場</figcaption>
+      </figure>
+      <figure class="activity-photo activity-photo--small">
+        <img src="images/pickleball.jpg" alt="ピッくるめの活動風景">
+        <figcaption>地域コミュニティ活動</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      セクション4：自己紹介（代表プロフィール）
 ============================================================ -->
 <section class="profile" id="profile">
@@ -235,10 +336,41 @@
     <p class="partners__en">PARTNERS</p>
     <h2 class="partners__title">お取引先・パートナー企業</h2>
     <p class="partners__lead">業種を越えて、さまざまな企業さまとご一緒しています。</p>
-    <ul class="partners__list">
-      <li class="partners__item"><img src="images/partner-miyazaki.png" alt="宮﨑商事"></li>
-      <li class="partners__item"><img src="images/partner-asumio.png" alt="アスミオ"></li>
-    </ul>
+    <!-- 2列を左右逆方向にゆっくり流す。各列は「同じ並び×2回」で途切れなくループさせる -->
+    <div class="partners__marquee" aria-label="お取引先ロゴ">
+      <div class="partners__track partners__track--left">
+        <!-- 1セット目（読み上げ対象） -->
+        <span class="partners__logo"><img src="images/partner-miyazaki.png" alt="宮﨑商事"></span>
+        <span class="partners__logo"><img src="images/partner-asumio.png" alt="アスミオ"></span>
+        <span class="partners__logo"><img src="images/partner-miyazaki.png" alt="宮﨑商事"></span>
+        <span class="partners__logo"><img src="images/partner-asumio.png" alt="アスミオ"></span>
+        <span class="partners__logo"><img src="images/partner-miyazaki.png" alt="宮﨑商事"></span>
+        <span class="partners__logo"><img src="images/partner-asumio.png" alt="アスミオ"></span>
+        <!-- 2セット目（ループ用の複製・読み上げ不要） -->
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-miyazaki.png" alt=""></span>
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-asumio.png" alt=""></span>
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-miyazaki.png" alt=""></span>
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-asumio.png" alt=""></span>
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-miyazaki.png" alt=""></span>
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-asumio.png" alt=""></span>
+      </div>
+      <div class="partners__track partners__track--right">
+        <!-- 1セット目 -->
+        <span class="partners__logo"><img src="images/partner-asumio.png" alt="アスミオ"></span>
+        <span class="partners__logo"><img src="images/partner-miyazaki.png" alt="宮﨑商事"></span>
+        <span class="partners__logo"><img src="images/partner-asumio.png" alt="アスミオ"></span>
+        <span class="partners__logo"><img src="images/partner-miyazaki.png" alt="宮﨑商事"></span>
+        <span class="partners__logo"><img src="images/partner-asumio.png" alt="アスミオ"></span>
+        <span class="partners__logo"><img src="images/partner-miyazaki.png" alt="宮﨑商事"></span>
+        <!-- 2セット目（ループ用の複製） -->
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-asumio.png" alt=""></span>
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-miyazaki.png" alt=""></span>
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-asumio.png" alt=""></span>
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-miyazaki.png" alt=""></span>
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-asumio.png" alt=""></span>
+        <span class="partners__logo" aria-hidden="true"><img src="images/partner-miyazaki.png" alt=""></span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -454,12 +586,11 @@
     </symbol>
     <!-- 飛行機のシルエット -->
     <g id="jet-shape">
-      <!-- 旅客機を上から見たシルエット（機首は右向き） -->
-      <path d="M16,45 C16,41 24,39.5 44,39 L150,38.5 C172,38.5 188,41.5 194,45 C188,48.5 172,51.5 150,51.5 L44,51 C24,50.5 16,49 16,45 Z"/>
-      <path d="M124,40 L74,7 L60,9 L98,41 Z"/>
-      <path d="M124,50 L74,83 L60,81 L98,49 Z"/>
-      <path d="M46,40 L28,23 L18,24.5 L30,40.5 Z"/>
-      <path d="M46,50 L28,67 L18,65.5 L30,49.5 Z"/>
+      <!-- 横から見た旅客機のシルエット（機首は右向き）2026-06-22 差し替え -->
+      <path d="M16,51 C20,46 40,44 72,43.4 L150,43 C172,43 187,44.4 194,47 C188,48.6 179,49 168,49.3 L150,49.6 C116,50.6 78,52.6 46,54.4 C30,55 20,54.4 16,51 Z"/>
+      <path d="M24,48 L17,27 L29,28 L44,46 Z"/>
+      <path d="M112,49 L86,73 L68,73 L94,49 Z"/>
+      <path d="M150,43.4 L176,33 L184,34.5 L168,44 Z"/>
     </g>
     <g id="skyline-shape">
       <!-- 地面 -->

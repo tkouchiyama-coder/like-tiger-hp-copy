@@ -53,6 +53,7 @@ body::after {
   font-style: italic;
   font-size: 24px;
   text-decoration: none;
+  color: var(--yellow); /* Like / Tiger とも黄色で統一（2026-06-22） */
 }
 .tl-header__logo span { color: var(--yellow); }
 .tl-header__back {
