@@ -1,0 +1,9 @@
+# Vercel の裏方ファイル
+.vercel
+
+# macOS の裏方ファイル
+.DS_Store
+
+# 容量が大きい原本・参考素材（Mac側に保管。GitHubには上げない）
+素材/
+Like tiger HP参考/

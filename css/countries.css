@@ -1,0 +1,316 @@
+/* ============================================================
+   TRAVEL LOG ─ 社員が滞在した国一覧
+   黒×黄 / 旅の記録・パスポートスタンプの世界観
+============================================================ */
+
+:root {
+  --yellow: #FFED00; /* 会社ロゴの正式カラー */
+  --black: #0D0D0D;
+  --ink: #161616;
+  --white: #FFFFFF;
+  --font-jp: "Noto Sans JP", sans-serif;
+  --font-en: "Archivo Black", sans-serif;
+  --font-hand: "Yusei Magic", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-jp);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+ul { list-style: none; }
+
+/* 紙のようなざらつき */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- ヘッダー ---------- */
+.tl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 5vw;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.tl-header__logo {
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: 24px;
+  text-decoration: none;
+}
+.tl-header__logo span { color: var(--yellow); }
+.tl-header__back {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: var(--yellow);
+  border: 1.5px solid var(--yellow);
+  border-radius: 999px;
+  padding: 8px 22px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.tl-header__back:hover { background: var(--yellow); color: var(--black); }
+
+/* ---------- ヒーロー ---------- */
+.tl-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 4vw;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 90px 5vw 70px;
+}
+
+.tl-hero__eyebrow {
+  font-family: var(--font-en);
+  font-style: italic;
+  color: var(--yellow);
+  font-size: clamp(13px, 1.3vw, 16px);
+  letter-spacing: 0.35em;
+  margin-bottom: 14px;
+}
+.tl-hero__title {
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: clamp(64px, 9.5vw, 136px);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  margin-bottom: 22px;
+}
+.tl-hero__dot { color: var(--yellow); }
+.tl-hero__sub {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  font-weight: 900;
+  font-size: clamp(15px, 1.6vw, 20px);
+  letter-spacing: 0.16em;
+  padding: 8px 22px;
+  transform: rotate(-1.5deg);
+  margin-bottom: 26px;
+}
+.tl-hero__copy {
+  font-size: clamp(13.5px, 1.3vw, 16px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 地球儀＋周回する飛行機 */
+.tl-globe-wrap {
+  position: relative;
+  width: min(38vw, 460px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+.tl-globe {
+  width: 100%;
+  height: 100%;
+  stroke: var(--yellow);
+  stroke-width: 1.1;
+  opacity: 0.9;
+  animation: tl-spin 90s linear infinite;
+}
+.tl-pin {
+  fill: var(--yellow);
+  stroke: none;
+  animation: tl-pulse 2.4s ease-in-out infinite;
+}
+.tl-pin--2 { animation-delay: 0.5s; }
+.tl-pin--3 { animation-delay: 1s; }
+.tl-pin--4 { animation-delay: 1.5s; }
+.tl-pin--5 { animation-delay: 2s; }
+
+.tl-orbit {
+  position: absolute;
+  inset: -11%;
+  border: 1.5px dashed rgba(255, 225, 0, 0.45);
+  border-radius: 50%;
+  animation: tl-spin 26s linear infinite;
+}
+.tl-orbit__plane {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  width: clamp(44px, 4.5vw, 62px);
+  fill: var(--yellow);
+  transform: translateX(-50%) rotate(12deg);
+}
+
+@keyframes tl-spin { to { transform: rotate(360deg); } }
+@keyframes tl-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* ---------- 数字 ---------- */
+.tl-stats {
+  display: flex;
+  justify-content: center;
+  gap: clamp(36px, 8vw, 120px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px 5vw;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.tl-stat { text-align: center; }
+.tl-stat__num {
+  display: block;
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: clamp(44px, 6vw, 76px);
+  line-height: 1;
+  color: var(--yellow);
+}
+.tl-stat__label {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ---------- 国一覧 ---------- */
+.tl-regions {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 5vw 30px;
+}
+.tl-region { margin-bottom: 54px; }
+.tl-region__title {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 22px;
+  padding-left: 18px;
+  border-left: 6px solid var(--yellow);
+}
+.tl-region__title span {
+  font-family: var(--font-en);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.5em;
+  letter-spacing: 0.22em;
+  color: var(--yellow);
+}
+
+.tl-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tl-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--ink);
+  border: 1.5px dashed rgba(255, 225, 0, 0.55);
+  border-radius: 999px;
+  padding: 9px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.tl-chip:nth-child(odd) { transform: rotate(-0.8deg); }
+.tl-chip:nth-child(even) { transform: rotate(0.8deg); }
+.tl-chip:hover {
+  background: var(--yellow);
+  color: var(--black);
+  border-color: var(--yellow);
+  transform: rotate(0deg) translateY(-3px);
+}
+.tl-chip__flag { font-size: 18px; line-height: 1; }
+
+.tl-note {
+  font-family: var(--font-hand);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13.5px;
+  text-align: center;
+  margin: 10px 0 30px;
+}
+
+/* ---------- CTA ---------- */
+.tl-cta {
+  text-align: center;
+  padding: 60px 5vw 90px;
+}
+.tl-raita {
+  display: block;
+  width: clamp(120px, 14vw, 170px);
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 10px 22px rgba(255, 237, 0, 0.18));
+  animation: tl-bob 5s ease-in-out infinite;
+}
+@keyframes tl-bob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+.tl-cta__copy {
+  font-family: var(--font-hand);
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: var(--yellow);
+  margin-bottom: 26px;
+}
+.tl-cta__btn {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  padding: 17px 52px;
+  border-radius: 999px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 0 rgba(255, 225, 0, 0.25);
+}
+.tl-cta__btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 0 rgba(255, 225, 0, 0.25);
+}
+
+/* ---------- フッター ---------- */
+.tl-footer {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 26px 5vw;
+}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width: 768px) {
+  .tl-hero {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    padding: 60px 6vw 50px;
+  }
+  .tl-globe-wrap { width: 64vw; max-width: 320px; }
+  .tl-hero__copy br { display: none; }
+  .tl-stats { gap: 8vw; padding: 30px 4vw; }
+  .tl-region__title { flex-direction: column; gap: 2px; }
+}

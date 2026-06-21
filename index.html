@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社LikeTiger｜Sales is Journey — 世界を旅する営業マン</title>
+  <meta name="description" content="株式会社LikeTigerは「Sales is Journey」を理念に、コスト削減・売上創出・ライフスタイル事業で企業と人の旅に伴走する福岡・久留米の営業会社です。">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@600;700;800&family=Reggae+One&family=Yusei+Magic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     セクション1：トップ（ヒーロー）
+============================================================ -->
+<section class="hero" id="top">
+  <a class="hero__brand" href="#top" aria-label="株式会社LikeTiger">
+    <img src="images/logo-black.png" alt="株式会社LikeTiger ロゴ">
+  </a>
+
+  <nav class="site-nav">
+    <a href="business.html">事業内容</a>
+    <a href="philosophy.html">理念・ビジョン</a>
+    <a href="countries.html">TRAVEL LOG</a>
+    <a href="#contact" class="site-nav__cta">お問い合わせ</a>
+  </nav>
+
+  <!-- 筆ブラシの黒い飛沫（装飾） -->
+  <div class="brush brush--left" aria-hidden="true"></div>
+  <div class="brush brush--bottom-left" aria-hidden="true"></div>
+  <div class="brush brush--bottom-right" aria-hidden="true"></div>
+
+  <!-- 背景の地球儀（線画・ゆっくり回転） -->
+  <svg class="hero__globe" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <circle cx="100" cy="100" r="96" stroke="#2BB8DE" stroke-width="1.6"/>
+    <ellipse cx="100" cy="100" rx="42" ry="96" stroke="#2BB8DE" stroke-width="1.2"/>
+    <ellipse cx="100" cy="100" rx="76" ry="96" stroke="#2BB8DE" stroke-width="1.2"/>
+    <ellipse cx="100" cy="100" rx="96" ry="38" stroke="#2BB8DE" stroke-width="1.2"/>
+    <ellipse cx="100" cy="100" rx="96" ry="74" stroke="#2BB8DE" stroke-width="1.2"/>
+    <path d="M4,100 H196 M100,4 V196" stroke="#2BB8DE" stroke-width="1.2"/>
+  </svg>
+
+  <!-- 下部の飛行機＋宙返りの点線 -->
+  <svg class="hero__loop" viewBox="0 0 320 90" fill="none" aria-hidden="true">
+    <path d="M10,70 C60,20 110,75 150,45 C175,26 165,10 148,18 C132,26 150,48 190,40 C240,30 280,55 312,35" stroke="#111" stroke-width="3" stroke-dasharray="1 11" stroke-linecap="round"/>
+  </svg>
+  <svg class="hero__plane-mini" viewBox="0 0 200 90" aria-hidden="true"><use href="#jet-shape"/></svg>
+
+  <div class="hero__inner">
+    <div class="hero__text reveal">
+      <h1 class="hero__title">
+        <span class="hero__company-ja">株式会社</span>
+        <span class="hero__company"><i class="white-brush" aria-hidden="true"></i>LikeTiger</span>
+      </h1>
+      <p class="hero__subtitle"><span>Sales is Journey</span></p>
+      <p class="hero__tagline">― 世界を旅する営業マン ―</p>
+      <p class="hero__copy">
+        挑戦が、人生を動かす。世界を舞台に、出会いと価値を届け、<br>
+        自分を、未来を、アップデートし続けよう。
+      </p>
+      <a href="#contact" class="hero__cta">お問い合わせはこちら <span aria-hidden="true">&#8594;</span></a>
+    </div>
+  </div>
+
+  <!-- 右側：公式キャラクター らい太くんがご案内 -->
+  <div class="hero__raita reveal reveal--delay1">
+    <img src="images/raita-guide.png" alt="LikeTiger公式キャラクター らい太くんがご案内します">
+    <span class="hero__raita-label">公式キャラクター らい太くん</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     セクション2：取扱い（事業内容）
+     ※理念・ビジョンは philosophy.html へ移動（2026-06-10）
+============================================================ -->
+<section class="services" id="services">
+  <span class="section-tag">取扱い</span>
+  <svg class="services__plane" viewBox="0 0 200 90" aria-hidden="true"><use href="#jet-shape"/></svg>
+
+  <div class="services__inner">
+
+    <!-- 列1：LikeTigerの3つの事業（名刺の裏面と同じ内容・色に合わせる予定） -->
+    <div class="services__col reveal">
+      <h3 class="services__heading"><svg class="ic services__heading-ic" aria-hidden="true"><use href="#ic-target"/></svg>LikeTigerの3つの事業</h3>
+      <p class="services__lead">コストを削減し、価値を最大化する<br><strong>3つの事業でサポート</strong></p>
+      <ol class="axis-list">
+        <li class="axis">
+          <span class="axis__num">01</span>
+          <div class="axis__body axis__body--cyan">
+            <h4 class="axis__title"><svg class="ic axis__ic" aria-hidden="true"><use href="#ic-printer"/></svg>法人コスト削減事業</h4>
+            <p class="axis__desc">AI活用、複合機、エレベーター 等</p>
+          </div>
+        </li>
+        <li class="axis">
+          <span class="axis__num">02</span>
+          <div class="axis__body axis__body--lime">
+            <h4 class="axis__title"><svg class="ic axis__ic" aria-hidden="true"><use href="#ic-sns"/></svg>SNSマーケティング事業</h4>
+            <p class="axis__desc">SNS運用、PRキャスティング 等</p>
+          </div>
+        </li>
+        <li class="axis">
+          <span class="axis__num">03</span>
+          <div class="axis__body axis__body--pink">
+            <h4 class="axis__title"><svg class="ic axis__ic" aria-hidden="true"><use href="#ic-building"/></svg>ライフスタイル事業</h4>
+            <p class="axis__desc">農業資材販売、健康、不動産 等</p>
+          </div>
+        </li>
+      </ol>
+      <a class="services__more" href="business.html">事業内容をくわしく見る <span aria-hidden="true">&#8594;</span></a>
+    </div>
+
+    <!-- 列2：事業・サービス一覧 -->
+    <div class="services__col reveal reveal--delay1">
+      <h3 class="services__heading"><svg class="ic services__heading-ic" aria-hidden="true"><use href="#ic-list"/></svg>事業・サービス一覧</h3>
+      <ul class="services__grid">
+        <li class="service-card"><svg class="ic service-card__icon" aria-hidden="true"><use href="#ic-cost"/></svg>法人コスト<br>削減事業</li>
+        <li class="service-card"><svg class="ic service-card__icon" aria-hidden="true"><use href="#ic-ai"/></svg>AI活用</li>
+        <li class="service-card"><svg class="ic service-card__icon" aria-hidden="true"><use href="#ic-printer"/></svg>複合機</li>
+        <li class="service-card"><svg class="ic service-card__icon" aria-hidden="true"><use href="#ic-elevator"/></svg>エレベーター</li>
+        <li class="service-card"><svg class="ic service-card__icon" aria-hidden="true"><use href="#ic-sns"/></svg>SNSマーケ<br>ティング事業</li>
+        <li class="service-card"><svg class="ic service-card__icon" aria-hidden="true"><use href="#ic-life"/></svg>ライフスタイル<br>事業</li>
+        <li class="service-card"><svg class="ic service-card__icon" aria-hidden="true"><use href="#ic-sprout"/></svg>農業資材販売</li>
+        <li class="service-card"><svg class="ic service-card__icon" aria-hidden="true"><use href="#ic-building"/></svg>不動産</li>
+        <li class="service-card"><svg class="ic service-card__icon" aria-hidden="true"><use href="#ic-health"/></svg>健康</li>
+      </ul>
+    </div>
+
+    <!-- 列3：実績・強み -->
+    <div class="services__col reveal reveal--delay2">
+      <h3 class="services__heading"><svg class="ic services__heading-ic" aria-hidden="true"><use href="#ic-trophy"/></svg>実績・強み</h3>
+      <ul class="strength-list">
+        <li class="strength">
+          <span class="strength__icon"><svg class="ic" aria-hidden="true"><use href="#ic-clipboard"/></svg></span>
+          <div class="strength__body">
+            <h4 class="strength__title">課題解決力</h4>
+            <p class="strength__desc">現状の課題を丁寧にヒアリングし、実行まで一貫してご提案。複合機・エレベーター・AI・SNS・不動産・農業まで幅広く対応します。</p>
+          </div>
+        </li>
+        <li class="strength">
+          <span class="strength__icon"><svg class="ic" aria-hidden="true"><use href="#ic-bolt"/></svg></span>
+          <div class="strength__body">
+            <h4 class="strength__title">対応スピード</h4>
+            <p class="strength__desc">相談・確認・トラブル対応まで、圧倒的なスピードでお応えします。</p>
+          </div>
+        </li>
+        <li class="strength">
+          <span class="strength__icon"><svg class="ic" aria-hidden="true"><use href="#ic-medal"/></svg></span>
+          <div class="strength__body">
+            <h4 class="strength__title">紹介・リピート多数</h4>
+            <p class="strength__desc">信頼の積み重ねから、ご紹介・リピートのご相談が次々と生まれています。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 世界の名所シルエット帯 -->
+  <div class="skyline skyline--yellow" aria-hidden="true">
+    <svg viewBox="0 0 1200 110" preserveAspectRatio="none">
+      <use href="#skyline-shape"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     セクション4：自己紹介（代表プロフィール）
+============================================================ -->
+<section class="profile" id="profile">
+  <span class="section-tag">代表ご挨拶</span>
+
+  <div class="profile__inner">
+    <div class="profile__visual reveal">
+      <div class="photo photo--profile-main" data-photo="images/profile-main.jpg">
+        <span class="photo__note">代表の写真が入ります<br><small>(profile-main.jpg)</small></span>
+      </div>
+      <div class="photo photo--profile-sub1" data-photo="images/profile-sub1.jpg">
+        <span class="photo__note">旅の写真<br><small>(profile-sub1.jpg)</small></span>
+      </div>
+      <div class="photo photo--profile-sub2" data-photo="images/profile-sub2.jpg">
+        <span class="photo__note">旅の写真<br><small>(profile-sub2.jpg)</small></span>
+      </div>
+      <svg class="profile__plane" viewBox="0 0 200 90" aria-hidden="true"><use href="#jet-shape"/></svg>
+    </div>
+
+    <div class="profile__text reveal reveal--delay1">
+      <p class="profile__role">代表取締役／CEO</p>
+      <h2 class="profile__name">河内山 大我</h2>
+      <p class="profile__motto">Have a rice trip<svg class="profile__rice" viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-rice"/></svg></p>
+
+      <ul class="career-list">
+        <li>東京農業大学 応用生物科学部 出身</li>
+        <li>株式会社タカミヤ アグリ事業部 久留米営業所配属をきっかけに、九州・福岡へご縁をいただく</li>
+        <li>社会人1年目から新規営業を一貫して経験</li>
+        <li>MOVA福岡校にて映像スクール事業の立ち上げを経験</li>
+        <li>株式会社Denraiにて法人営業を経験</li>
+        <li>現在は株式会社LikeTigerにて営業会社を設立</li>
+        <li>26歳で世界一周を達成、これまで世界33カ国を訪問</li>
+        <li>今後は100カ国を目標に、公私ともに &quot;Have a rice trip&quot;</li>
+      </ul>
+
+      <a class="countries-link" href="countries.html">
+        <svg class="ic" aria-hidden="true"><use href="#ic-globe"/></svg>
+        滞在した国一覧を見る <span aria-hidden="true">&#8594;</span>
+      </a>
+    </div>
+
+    <div class="profile__side reveal reveal--delay2">
+      <div class="drive-box">
+        <h3 class="drive-box__title">私の原動力</h3>
+        <p class="drive-box__text">
+          人との出会い。そして小さなきっかけから私は海外にハマり、思考から行動が大きく変わり続けるようになりました。
+          与えてもらった分、きっかけを与え続ける存在でありたいと強く想っています。
+        </p>
+      </div>
+      <div class="bubble">
+        <p class="bubble__text">
+          不器用で「英語も苦手」だった僕が、気づけば世界へ。<br>
+          まずは行動あるのみ！「行動力おばけ」の異名も名付けられました。<br>
+          1人旅、留学、海外ボランティアも経験しました。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     お取引先
+============================================================ -->
+<section class="partners" id="partners">
+  <span class="section-tag">お取引先</span>
+  <div class="partners__inner reveal">
+    <p class="partners__en">PARTNERS</p>
+    <h2 class="partners__title">お取引先・パートナー企業</h2>
+    <p class="partners__lead">業種を越えて、さまざまな企業さまとご一緒しています。</p>
+    <ul class="partners__list">
+      <li class="partners__item"><img src="images/partner-miyazaki.png" alt="宮﨑商事"></li>
+      <li class="partners__item"><img src="images/partner-asumio.png" alt="アスミオ"></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     セクション5：お問い合わせ
+============================================================ -->
+<section class="contact" id="contact">
+  <span class="section-tag">お問い合わせ</span>
+
+  <div class="contact__inner reveal">
+    <h2 class="contact__title">
+      お気軽にご相談ください
+      <svg class="contact__route" viewBox="0 0 220 60" fill="none" aria-hidden="true">
+        <path d="M5,50 C60,10 140,45 200,15" stroke="#111" stroke-width="2.5" stroke-dasharray="2 10" stroke-linecap="round"/>
+      </svg>
+      <svg class="contact__plane" viewBox="0 0 200 90" aria-hidden="true"><use href="#jet-shape"/></svg>
+    </h2>
+
+    <form class="contact-form" id="contact-form" novalidate>
+      <div class="contact-form__row">
+        <div class="field">
+          <label class="field__label" for="company">会社名</label>
+          <div class="field__box">
+            <svg class="ic field__icon" aria-hidden="true"><use href="#ic-building"/></svg>
+            <input type="text" id="company" name="company" placeholder="例）株式会社〇〇〇〇">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="name">お名前</label>
+          <div class="field__box">
+            <svg class="ic field__icon" aria-hidden="true"><use href="#ic-person"/></svg>
+            <input type="text" id="name" name="name" placeholder="例）山田 太郎">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="email">メールアドレス</label>
+          <div class="field__box">
+            <svg class="ic field__icon" aria-hidden="true"><use href="#ic-mail"/></svg>
+            <input type="email" id="email" name="email" placeholder="例）sample@mail.com">
+          </div>
+        </div>
+      </div>
+
+      <div class="field field--wide">
+        <label class="field__label" for="message">お問い合わせ内容</label>
+        <div class="field__box field__box--textarea">
+          <svg class="ic field__icon" aria-hidden="true"><use href="#ic-pen"/></svg>
+          <textarea id="message" name="message" rows="6" placeholder="ご相談・ご質問内容をご記入ください"></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="contact-form__submit">送信する <span aria-hidden="true">&#8250;</span></button>
+      <p class="contact-form__thanks" id="form-thanks" hidden>
+        送信ありがとうございます！<br>内容を確認のうえ、担当よりご連絡いたします。
+      </p>
+    </form>
+  </div>
+
+  <!-- 公式キャラクター らい太くん -->
+  <div class="contact__raita" aria-hidden="false">
+    <img src="images/raita.png" alt="LikeTiger公式キャラクター らい太くん">
+    <span class="contact__raita-label">公式キャラクター<br>らい太くん</span>
+  </div>
+
+  <!-- 世界の名所シルエット帯 -->
+  <div class="skyline skyline--dark" aria-hidden="true">
+    <svg viewBox="0 0 1200 110" preserveAspectRatio="none">
+      <use href="#skyline-shape"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     フッター（会社概要）
+============================================================ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__logo"><img class="footer__official" src="images/logo-footer-white.png" alt="株式会社LikeTiger"></p>
+    <p class="footer__concept">Sales is Journey — 世界を旅する営業マン</p>
+    <dl class="footer__info">
+      <div><dt>会社名</dt><dd>株式会社LikeTiger</dd></div>
+      <div><dt>代表者</dt><dd>代表取締役／CEO　河内山 大我</dd></div>
+      <div><dt>設立</dt><dd>2026年3月5日</dd></div>
+      <div><dt>資本金</dt><dd>500,000円</dd></div>
+      <div><dt>本社</dt><dd>〒830-0003　福岡県久留米市東櫛原町441番地1-407</dd></div>
+      <div><dt>東京支社</dt><dd>〒178-0065 東京都練馬区西大泉2丁目1番地19号</dd></div>
+      <div><dt>横浜支社</dt><dd>〒224-0044 神奈川県横浜市都筑区川向町2002番3</dd></div>
+      <div><dt>連絡先</dt><dd><a href="tel:080-9994-3832">080-9994-3832</a>／<a href="mailto:t.kouchiyama@liketiger39.com">t.kouchiyama@liketiger39.com</a></dd></div>
+      <div><dt>営業時間</dt><dd>年中無休</dd></div>
+    </dl>
+    <p class="footer__links"><a href="business.html">事業内容</a>　　<a href="philosophy.html">理念・ビジョン</a>　　<a href="countries.html">TRAVEL LOG ─ 滞在した国一覧</a></p>
+    <p class="footer__copyright">&copy; 2026 LikeTiger Inc. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- 世界の名所シルエット（共通パーツ・画面には直接表示されません） -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- 文字や帯のフチをインクのようにかすれさせるフィルター -->
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+    </filter>
+    <!-- 筆ブラシの大きくうねるフチを作るフィルター -->
+    <filter id="brush-edge" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035 0.12" numOctaves="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="30"/>
+    </filter>
+    <!-- 線画アイコン集（絵文字の代わり） -->
+    <symbol id="ic-cost" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9.2"/>
+      <path d="M8.8,7.5 12,11.5 15.2,7.5 M12,11.5 V16.5 M9,13.2 H15 M9,15.4 H15"/>
+    </symbol>
+    <symbol id="ic-ai" viewBox="0 0 24 24">
+      <rect x="7" y="7" width="10" height="10" rx="2"/>
+      <rect x="10.5" y="10.5" width="3" height="3"/>
+      <path d="M9.5,7V4 M14.5,7V4 M9.5,20V17 M14.5,20V17 M7,9.5H4 M7,14.5H4 M20,9.5H17 M20,14.5H17"/>
+    </symbol>
+    <symbol id="ic-printer" viewBox="0 0 24 24">
+      <path d="M7,9V4h10v5"/>
+      <rect x="4" y="9" width="16" height="7" rx="1.5"/>
+      <rect x="8" y="13.5" width="8" height="6.5"/>
+    </symbol>
+    <symbol id="ic-elevator" viewBox="0 0 24 24">
+      <rect x="5" y="3" width="14" height="18" rx="2"/>
+      <path d="M8.7,10.6 L11.3,10.6 L10,8.4 Z" fill="currentColor" stroke="none"/>
+      <path d="M12.7,13.4 L15.3,13.4 L14,15.6 Z" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="ic-sns" viewBox="0 0 24 24">
+      <path d="M4,10.5 L14,6.5 V17.5 L4,13.5 Z"/>
+      <path d="M6.5,14 V18 a1.5,1.5 0 0 0 3,0 V15"/>
+      <path d="M17,9 a4.5,4.5 0 0 1 0,6"/>
+    </symbol>
+    <symbol id="ic-life" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12,3V5.5 M12,18.5V21 M3,12H5.5 M18.5,12H21 M5.6,5.6 7.4,7.4 M16.6,16.6 18.4,18.4 M18.4,5.6 16.6,7.4 M7.4,16.6 5.6,18.4"/>
+    </symbol>
+    <symbol id="ic-sprout" viewBox="0 0 24 24">
+      <path d="M12,21V11"/>
+      <path d="M12,11 C12,7.5 9,5.5 4.5,5.5 C4.5,9.5 8,11.5 12,11 Z"/>
+      <path d="M12,11 C12,7.5 15,5.5 19.5,5.5 C19.5,9.5 16,11.5 12,11 Z"/>
+    </symbol>
+    <symbol id="ic-building" viewBox="0 0 24 24">
+      <rect x="5.5" y="3.5" width="13" height="17.5"/>
+      <path d="M9,7.5h2 M13,7.5h2 M9,11h2 M13,11h2 M9,14.5h2 M13,14.5h2 M10.5,21 V17.5 h3 V21"/>
+    </symbol>
+    <symbol id="ic-health" viewBox="0 0 24 24">
+      <path d="M12,19.8 C5.8,15 4.2,10.5 6.6,7.6 C8.6,5.2 11.4,6.2 12,8.6 C12.6,6.2 15.4,5.2 17.4,7.6 C19.8,10.5 18.2,15 12,19.8 Z"/>
+    </symbol>
+    <symbol id="ic-paw" viewBox="0 0 24 24">
+      <circle cx="6.5" cy="10" r="1.8"/>
+      <circle cx="10.2" cy="7.5" r="1.8"/>
+      <circle cx="13.8" cy="7.5" r="1.8"/>
+      <circle cx="17.5" cy="10" r="1.8"/>
+      <path d="M12,11.5 c-2.8,0 -5,2 -5,4.2 c0,1.6 1.3,2.8 3,2.8 c0.8,0 1.4,-0.3 2,-0.3 s1.2,0.3 2,0.3 c1.7,0 3,-1.2 3,-2.8 c0,-2.2 -2.2,-4.2 -5,-4.2 Z"/>
+    </symbol>
+    <symbol id="ic-clipboard" viewBox="0 0 24 24">
+      <rect x="5.5" y="4.5" width="13" height="16.5" rx="2"/>
+      <rect x="9" y="2.5" width="6" height="3.5" rx="1"/>
+      <path d="M8.5,13.5 l2.5,2.5 4.5,-5.5"/>
+    </symbol>
+    <symbol id="ic-chart" viewBox="0 0 24 24">
+      <path d="M4,4 V20 H20"/>
+      <path d="M7.5,15.5 L11,11.5 13.8,13.8 19,7.5"/>
+      <path d="M19,11 V7.5 H15.5"/>
+    </symbol>
+    <symbol id="ic-medal" viewBox="0 0 24 24">
+      <circle cx="12" cy="15" r="4.8"/>
+      <path d="M9.4,11 L7,3.5 h3.6 L12,7 13.4,3.5 H17 L14.6,11"/>
+      <circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="ic-bolt" viewBox="0 0 24 24">
+      <path d="M13,2 L5,13.5 H11 L10,22 L18,9.5 H12 Z"/>
+    </symbol>
+    <symbol id="ic-rice" viewBox="0 0 48 48">
+      <!-- おにぎり（お米）の線画イラスト -->
+      <path d="M24,7 C26,7 27.5,8.5 28.6,10.4 L38.5,28 C40.5,31.6 39,36 35,37 C32,37.8 27.8,38.3 24,38.3 C20.2,38.3 16,37.8 13,37 C9,36 7.5,31.6 9.5,28 L19.4,10.4 C20.5,8.5 22,7 24,7 Z" fill="#fff" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M14.5,30.5 C18,29.5 30,29.5 33.5,30.5 C34.6,30.8 35,32 34.3,33 C33.6,34 31,34.8 24,34.8 C17,34.8 14.4,34 13.7,33 C13,32 13.4,30.8 14.5,30.5 Z" fill="#111" stroke="none"/>
+      <path d="M21,15 L24,18 L27,15" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ic-target" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.6"/>
+      <circle cx="12" cy="12" r="4.8"/>
+      <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="ic-list" viewBox="0 0 24 24">
+      <path d="M8.5,6 H20 M8.5,12 H20 M8.5,18 H20"/>
+      <circle cx="4.4" cy="6" r="1.1" fill="currentColor" stroke="none"/>
+      <circle cx="4.4" cy="12" r="1.1" fill="currentColor" stroke="none"/>
+      <circle cx="4.4" cy="18" r="1.1" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="ic-trophy" viewBox="0 0 24 24">
+      <path d="M8,4 H16 V9.5 a4,4 0 0 1 -8,0 Z"/>
+      <path d="M8,5.5 H5 a3,3 0 0 0 3.2,4 M16,5.5 h3 a3,3 0 0 1 -3.2,4"/>
+      <path d="M12,13.5 V16 M8.5,20.5 h7 M9.8,16 h4.4 l0.8,4.5 h-6 Z"/>
+    </symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="2"/>
+      <path d="M4.5,7 12,13 19.5,7"/>
+    </symbol>
+    <symbol id="ic-person" viewBox="0 0 24 24">
+      <circle cx="12" cy="8" r="3.8"/>
+      <path d="M4.5,20.5 c0,-4.2 3.4,-6.3 7.5,-6.3 s7.5,2.1 7.5,6.3"/>
+    </symbol>
+    <symbol id="ic-pen" viewBox="0 0 24 24">
+      <path d="M4.5,19.5 l1,-3.8 10.2,-10.2 a1.8,1.8 0 0 1 2.6,0 l0.2,0.2 a1.8,1.8 0 0 1 0,2.6 L8.3,18.5 Z"/>
+      <path d="M13.5,7.5 l3,3"/>
+    </symbol>
+    <symbol id="ic-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.8"/>
+      <ellipse cx="12" cy="12" rx="4" ry="8.8"/>
+      <path d="M3.6,9 H20.4 M3.6,15 H20.4"/>
+    </symbol>
+    <!-- 飛行機のシルエット -->
+    <g id="jet-shape">
+      <!-- 旅客機を上から見たシルエット（機首は右向き） -->
+      <path d="M16,45 C16,41 24,39.5 44,39 L150,38.5 C172,38.5 188,41.5 194,45 C188,48.5 172,51.5 150,51.5 L44,51 C24,50.5 16,49 16,45 Z"/>
+      <path d="M124,40 L74,7 L60,9 L98,41 Z"/>
+      <path d="M124,50 L74,83 L60,81 L98,49 Z"/>
+      <path d="M46,40 L28,23 L18,24.5 L30,40.5 Z"/>
+      <path d="M46,50 L28,67 L18,65.5 L30,49.5 Z"/>
+    </g>
+    <g id="skyline-shape">
+      <!-- 地面 -->
+      <rect x="0" y="100" width="1200" height="10"/>
+      <!-- エッフェル塔 -->
+      <polygon points="60,100 80,20 84,20 104,100 92,100 82,55 72,100"/>
+      <rect x="64" y="68" width="36" height="5"/>
+      <!-- ビッグベン -->
+      <rect x="170" y="40" width="26" height="60"/>
+      <polygon points="166,40 183,14 200,40"/>
+      <!-- 凱旋門 -->
+      <path d="M260,100 L260,55 Q288,30 316,55 L316,100 L298,100 L298,70 Q288,58 278,70 L278,100 Z"/>
+      <!-- ビル群 -->
+      <rect x="380" y="50" width="22" height="50"/>
+      <rect x="408" y="65" width="18" height="35"/>
+      <rect x="432" y="42" width="24" height="58"/>
+      <!-- 自由の女神（簡略） -->
+      <polygon points="520,100 528,45 536,100"/>
+      <circle cx="528" cy="38" r="7"/>
+      <line x1="536" y1="40" x2="546" y2="18" stroke-width="5" stroke="inherit"/>
+      <!-- ピサの斜塔風 -->
+      <rect x="610" y="38" width="20" height="62" transform="rotate(4 620 70)"/>
+      <!-- 鳥居 -->
+      <rect x="700" y="45" width="8" height="55"/>
+      <rect x="744" y="45" width="8" height="55"/>
+      <rect x="690" y="38" width="72" height="9"/>
+      <rect x="697" y="56" width="58" height="6"/>
+      <!-- 五重塔風 -->
+      <polygon points="830,100 838,80 874,80 882,100"/>
+      <polygon points="836,78 844,60 868,60 876,78"/>
+      <polygon points="842,58 850,42 862,42 870,58"/>
+      <polygon points="848,40 856,26 864,40"/>
+      <!-- ピラミッド -->
+      <polygon points="950,100 1000,35 1050,100"/>
+      <polygon points="1030,100 1068,55 1106,100"/>
+      <!-- モアイ風 -->
+      <path d="M1140,100 L1140,62 Q1152,48 1164,62 L1164,100 Z"/>
+    </g>
+  </defs>
+</svg>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+/* ============================================================
+   事業内容ページ（business.html）専用スタイル
+   3事業のテーマカラー：黄 #FFED00 ／ ピンク #F7A8C8 ／ 水色 #7FE0EE
+============================================================ */
+
+:root {
+  --biz-pink: #F7A8C8;
+  --biz-cyan: #7FE0EE;
+  --biz-lime: #BEF06A;
+}
+
+/* ---------- 事業詳細ブロック ---------- */
+.biz {
+  position: relative;
+  padding: 90px 6vw;
+}
+.biz:nth-of-type(odd) { background: #FAFAF6; }
+
+.biz__inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.biz__head {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-bottom: 30px;
+}
+.biz__num {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 86px;
+  height: 86px;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: 34px;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.18);
+}
+.biz--yellow .biz__num { color: var(--yellow); }
+.biz--pink .biz__num { color: var(--biz-pink); }
+.biz--cyan .biz__num { color: var(--biz-cyan); }
+.biz--lime .biz__num { color: var(--biz-lime); }
+
+.biz__en {
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  opacity: 0.55;
+}
+.biz__title {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 900;
+  line-height: 1.3;
+  padding: 0 6px;
+}
+/* タイトル下のマーカー（事業カラー） */
+.biz__title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: -8px;
+  bottom: 4px;
+  height: 0.42em;
+  z-index: -1;
+  filter: url(#brush-edge);
+}
+.biz--yellow .biz__title::after { background: var(--yellow); }
+.biz--pink .biz__title::after { background: var(--biz-pink); }
+.biz--cyan .biz__title::after { background: var(--biz-cyan); }
+.biz--lime .biz__title::after { background: var(--biz-lime); }
+
+.biz__lead {
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-weight: 500;
+  line-height: 2.1;
+  margin-bottom: 26px;
+}
+
+/* 取扱いサービスのタグ */
+.biz__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-bottom: 34px;
+}
+.biz__tags li {
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13.5px;
+  padding: 6px 18px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* こんなお悩み */
+.biz__points {
+  border: 2px solid var(--black);
+  background: var(--white);
+  padding: 26px 30px;
+  margin-bottom: 26px;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.12);
+}
+.biz__points-title {
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.biz__points ul li {
+  position: relative;
+  font-size: 14.5px;
+  font-weight: 500;
+  padding-left: 24px;
+  margin-bottom: 8px;
+}
+.biz__points ul li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 9px;
+  width: 10px;
+  height: 10px;
+  background: var(--black);
+  transform: rotate(45deg);
+}
+.biz--yellow .biz__points ul li::before { background: var(--yellow-deep); }
+.biz--pink .biz__points ul li::before { background: var(--biz-pink); }
+.biz--cyan .biz__points ul li::before { background: var(--biz-cyan); }
+.biz--lime .biz__points ul li::before { background: var(--biz-lime); }
+
+/* 事例（準備中） */
+.biz__case {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  background: var(--black);
+  color: var(--white);
+  padding: 22px 26px;
+}
+.biz__case-label {
+  flex-shrink: 0;
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+}
+.biz--yellow .biz__case-label { color: var(--yellow); }
+.biz--pink .biz__case-label { color: var(--biz-pink); }
+.biz--cyan .biz__case-label { color: var(--biz-cyan); }
+.biz--lime .biz__case-label { color: var(--biz-lime); }
+.biz__case-text {
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+/* 事業ごとのアクセント色（実績カードで使用） */
+.biz--yellow { --accent: var(--yellow); }
+.biz--pink { --accent: var(--biz-pink); }
+.biz--cyan { --accent: var(--biz-cyan); }
+.biz--lime { --accent: var(--biz-lime); }
+
+/* 実績カード */
+.case-list { display: flex; flex-direction: column; gap: 10px; }
+.case {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+.case__cat {
+  flex-shrink: 0;
+  width: 80px;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1.3;
+}
+.case__text {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.case__text b { color: var(--accent); font-weight: 900; }
+.case__badge {
+  flex-shrink: 0;
+  background: var(--accent);
+  color: #111;
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+
+/* ---------- 代表の活動 ---------- */
+.activity {
+  background: var(--yellow);
+  padding: 90px 6vw 100px;
+  text-align: center;
+}
+.activity__lead {
+  font-weight: 700;
+  margin: -14px 0 40px;
+}
+.activity__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: left;
+}
+.activity-card {
+  background: var(--white);
+  border: 2px solid var(--black);
+  padding: 34px 30px;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.85);
+  transition: transform 0.25s ease;
+}
+.activity-card:hover { transform: translateY(-6px); }
+.activity-card__icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 2px solid var(--black);
+  border-radius: 50%;
+  background: var(--yellow);
+  margin-bottom: 16px;
+}
+.activity-card__icon .ic {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: var(--black);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.activity-card__photo {
+  width: 100%;
+  height: clamp(180px, 24vw, 230px);
+  object-fit: cover;
+  border: 2px solid var(--black);
+  border-radius: 10px;
+  margin: 6px 0 14px;
+}
+.activity-card__en {
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  opacity: 0.5;
+}
+.activity-card__text b { font-weight: 900; }
+.activity-card__title {
+  font-size: 21px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+.activity-card__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 2;
+}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width: 860px) {
+  .biz { padding: 64px 6vw; }
+  .biz__head { gap: 18px; }
+  .biz__num { width: 64px; height: 64px; font-size: 26px; }
+  .case { flex-wrap: wrap; gap: 8px 12px; }
+  .case__cat { width: auto; }
+  .case__badge { margin-left: auto; }
+  .activity__grid { grid-template-columns: 1fr; }
+}

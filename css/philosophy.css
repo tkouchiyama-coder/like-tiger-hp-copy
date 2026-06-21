@@ -1,0 +1,218 @@
+/* ============================================================
+   理念・ビジョンページ（philosophy.html）専用スタイル
+   ※ベースは style.css を共用
+============================================================ */
+
+/* ---------- 共通ラベル・見出し ---------- */
+.ph-label {
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: clamp(13px, 1.3vw, 16px);
+  letter-spacing: 0.3em;
+  margin-bottom: 16px;
+}
+
+.ph-heading {
+  text-align: center;
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 44px;
+}
+.ph-heading span {
+  background: linear-gradient(transparent 58%, var(--yellow) 58% 92%, transparent 92%);
+  padding: 0 4px;
+}
+
+/* ---------- 理念ヒーロー ---------- */
+.ph-hero {
+  position: relative;
+  background: var(--yellow);
+  padding: 130px 6vw 110px;
+  overflow: hidden;
+}
+.ph-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 15%, rgba(255, 255, 255, 0.35), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 90%, rgba(0, 0, 0, 0.06), transparent 70%);
+  pointer-events: none;
+}
+.ph-hero__inner {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  z-index: 2;
+}
+.ph-hero__title {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  transform: rotate(-3deg);
+  filter: url(#rough);
+  margin-bottom: 30px;
+}
+.ph-hero__sub {
+  font-weight: 900;
+  font-size: clamp(18px, 2.2vw, 28px);
+  letter-spacing: 0.2em;
+  margin-bottom: 22px;
+}
+.ph-hero__copy {
+  font-weight: 700;
+  font-size: clamp(14px, 1.4vw, 16.5px);
+  line-height: 2.2;
+}
+.ph-hero__route {
+  position: absolute;
+  bottom: 4%;
+  right: 2%;
+  width: min(42vw, 540px);
+  opacity: 0.8;
+}
+.ph-hero__jet {
+  position: absolute;
+  bottom: 16%;
+  right: 4%;
+  width: clamp(60px, 7vw, 100px);
+  fill: var(--black);
+  transform: rotate(-12deg);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ---------- 旅のエピソード ---------- */
+.ph-episodes {
+  background: var(--white);
+  padding: 90px 6vw;
+}
+.ph-episodes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 36px);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.episode {
+  position: relative;
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 14px;
+  padding: 30px 26px 26px;
+  box-shadow: 6px 6px 0 var(--yellow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.episode:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 var(--yellow);
+}
+.episode__num {
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: 38px;
+  line-height: 1;
+  color: var(--yellow-deep);
+  -webkit-text-stroke: 1.5px var(--black);
+  display: block;
+  margin-bottom: 14px;
+}
+.episode__title {
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.episode__text {
+  font-size: 13.5px;
+  line-height: 1.9;
+}
+
+/* ---------- 旅の登場人物 ---------- */
+.ph-persona {
+  background: var(--yellow);
+  padding: 90px 6vw;
+}
+.ph-persona__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 36px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.persona {
+  background: var(--white);
+  border-radius: 16px;
+  text-align: center;
+  padding: 34px 24px 28px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+.persona__icon {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 16px;
+  background: var(--yellow);
+  border: 2px solid var(--black);
+  border-radius: 50%;
+}
+.persona__icon .ic { width: 28px; height: 28px; }
+.persona__title {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+.persona__role {
+  font-family: var(--font-hand);
+  font-size: 14px;
+  margin: 2px 0 12px;
+}
+.persona__text {
+  font-size: 13.5px;
+  line-height: 1.9;
+  text-align: left;
+}
+
+/* ---------- CTA ---------- */
+.ph-cta {
+  background: var(--white);
+  text-align: center;
+  padding: 80px 6vw;
+}
+.ph-cta__copy {
+  font-family: var(--font-hand);
+  font-size: clamp(18px, 2.2vw, 26px);
+  margin-bottom: 26px;
+}
+.ph-cta__btn {
+  display: inline-block;
+  background: var(--black);
+  color: var(--yellow);
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  padding: 17px 52px;
+  border-radius: 999px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25);
+}
+.ph-cta__btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width: 768px) {
+  .ph-hero { padding: 120px 6vw 90px; }
+  .ph-hero__copy br { display: none; }
+  .ph-hero__route, .ph-hero__jet { display: none; }
+  .ph-episodes__grid,
+  .ph-persona__grid { grid-template-columns: 1fr; }
+}

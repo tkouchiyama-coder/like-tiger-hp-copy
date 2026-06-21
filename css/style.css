@@ -1,0 +1,1244 @@
+/* ============================================================
+   株式会社LikeTiger ホームページ
+   黄×黒×白 / 旅テーマ「Sales is Journey」
+============================================================ */
+
+:root {
+  --yellow: #FFED00; /* 会社ロゴの正式カラー */
+  --yellow-deep: #F5C800;
+  --black: #111111;
+  --white: #FFFFFF;
+  --gray-photo: #D9D9D9;
+  --gray-photo-dark: #BFBFBF;
+  --font-jp: "Noto Sans JP", sans-serif;
+  --font-en: "Archivo Black", sans-serif;
+  --font-script: "Caveat", cursive;
+  --font-hand: "Yusei Magic", sans-serif;
+  --font-brush: "Reggae One", serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-jp);
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+ul, ol { list-style: none; }
+
+/* 紙のようなざらつき（全体の質感アップ） */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- 共通：線画アイコン ---------- */
+.ic {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* ---------- 共通：セクションラベル（左上の黒タグ） ---------- */
+.section-tag {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 5;
+  display: inline-block;
+  background: var(--black);
+  color: var(--white);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  padding: 7px 18px;
+  transform: rotate(-2deg);
+  clip-path: polygon(2% 8%, 98% 0%, 100% 88%, 1% 100%);
+}
+
+/* ---------- 共通：スクロールで現れるアニメーション ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal--delay1 { transition-delay: 0.15s; }
+.reveal--delay2 { transition-delay: 0.3s; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- 共通：写真の仮置きエリア ---------- */
+.photo {
+  position: relative;
+  background:
+    repeating-linear-gradient(45deg,
+      var(--gray-photo) 0 14px,
+      #d0d0d0 14px 28px);
+  border: 5px solid var(--white);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.photo__note {
+  font-size: 13px;
+  font-weight: 700;
+  color: #777;
+  text-align: center;
+  line-height: 1.5;
+  padding: 8px;
+}
+.photo__note small { font-size: 10px; font-weight: 400; }
+.photo.has-photo .photo__note { display: none; }
+
+/* ============================================================
+   セクション1：トップ（ヒーロー）
+============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--yellow);
+  display: flex;
+  align-items: center;
+  padding: 90px 0 120px 6vw;
+  overflow: hidden;
+}
+
+/* 黄色の濃淡で奥行きを出すブラシ風の背景 */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 15%, rgba(255, 255, 255, 0.35), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 90%, rgba(0, 0, 0, 0.06), transparent 70%);
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -12px; }
+}
+
+/* ---------- 筆ブラシの黒い飛沫 ---------- */
+.brush {
+  position: absolute;
+  background: var(--black);
+  filter: url(#brush-edge);
+  pointer-events: none;
+  z-index: 1;
+}
+.brush--left {
+  top: 18%;
+  left: -5.5vw;
+  width: 9vw;
+  height: 44%;
+  transform: rotate(9deg);
+  border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+}
+.brush--bottom-left {
+  bottom: -7%;
+  left: -5vw;
+  width: 48vw;
+  height: 16%;
+  transform: rotate(-2deg);
+  border-radius: 60% 40% 30% 70% / 60% 40% 60% 40%;
+}
+.brush--bottom-right {
+  bottom: -9%;
+  right: -7vw;
+  width: 36vw;
+  height: 19%;
+  transform: rotate(3deg);
+  border-radius: 50% 50% 40% 60% / 55% 45% 55% 45%;
+}
+
+/* 背景の地球儀（線画・ゆっくり回転） */
+.hero__globe {
+  position: absolute;
+  top: 4%;
+  left: -8%;
+  width: clamp(320px, 42vw, 640px);
+  opacity: 0.32;
+  z-index: 0;
+  animation: spin 110s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 下部の飛行機＋宙返りの点線 */
+.hero__loop {
+  position: absolute;
+  bottom: 5%;
+  left: 36%;
+  width: clamp(160px, 22vw, 320px);
+  z-index: 3;
+  opacity: 0.9;
+}
+.hero__plane-mini {
+  position: absolute;
+  bottom: 11%;
+  left: 31%;
+  width: clamp(48px, 5vw, 72px);
+  fill: var(--black);
+  transform: rotate(-10deg);
+  z-index: 3;
+  animation: float 4s ease-in-out infinite;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1380px;
+}
+.hero__text { max-width: 50%; }
+
+/* 左上：会社ロゴ */
+.hero__brand {
+  position: absolute;
+  top: 22px;
+  left: 26px;
+  z-index: 10;
+  display: inline-block;
+  line-height: 0;
+}
+.hero__brand img {
+  width: clamp(132px, 15vw, 200px);
+  height: auto;
+}
+
+/* ページ上部のナビゲーション */
+.site-nav {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.site-nav a {
+  display: inline-block;
+  background: rgba(17, 17, 17, 0.08);
+  border: 1.5px solid var(--black);
+  color: var(--black);
+  font-size: 12.5px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.site-nav a:hover { transform: translateY(-2px); }
+.site-nav .site-nav__cta,
+.site-nav a:hover {
+  background: var(--black);
+  color: var(--yellow);
+}
+
+/* タイトル：社名＋インクのかすれ＋白ブラシの下地 */
+.hero__title {
+  font-family: var(--font-en);
+  font-style: italic;
+  line-height: 0.92;
+  transform: rotate(-5deg);
+  margin: 0 0 34px;
+}
+.hero__company-ja {
+  display: block;
+  font-family: var(--font-jp);
+  font-style: normal;
+  font-weight: 900;
+  font-size: clamp(20px, 2.4vw, 34px);
+  letter-spacing: 0.45em;
+  margin-bottom: 6px;
+}
+.hero__company {
+  position: relative;
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: clamp(54px, 8.6vw, 124px);
+  letter-spacing: -0.012em;
+}
+.hero__tagline {
+  font-weight: 900;
+  font-size: clamp(13px, 1.3vw, 16px);
+  letter-spacing: 0.3em;
+  margin: -8px 0 22px 0.3em;
+}
+.white-brush {
+  position: absolute;
+  left: -0.12em;
+  right: -0.08em;
+  top: 16%;
+  bottom: 4%;
+  background: rgba(255, 255, 255, 0.85);
+  filter: url(#brush-edge);
+  transform: skewX(-12deg) rotate(-1deg);
+  z-index: -1;
+  border-radius: 45% 55% 50% 50% / 60% 40% 55% 45%;
+}
+.white-brush--2 { top: 20%; bottom: 0; }
+
+/* サブタイトル：黒ブラシ帯に黄色文字（理念 Sales is Journey）
+   ※社名ではなくこちらにインクのかすれ（モヤ）をかける */
+.hero__subtitle {
+  margin: 0 0 22px 0.2em;
+  transform: rotate(-3deg);
+}
+.hero__subtitle span {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-en);
+  font-style: italic;
+  color: #000;
+  font-weight: 400;
+  font-size: clamp(22px, 2.8vw, 38px);
+  letter-spacing: 0.04em;
+  padding: 2px 4px 2px 0;
+}
+.hero__subtitle span::before { content: none; }
+
+.hero__copy {
+  font-weight: 700;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 2.1;
+  margin-bottom: 36px;
+}
+
+.hero__cta {
+  display: inline-block;
+  background: var(--black);
+  color: var(--yellow);
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  padding: 16px 42px;
+  border-radius: 999px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25);
+}
+.hero__cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* 「事業内容をくわしく見る」ボタン（取扱いセクション） */
+.services__more {
+  display: inline-block;
+  margin-top: 22px;
+  background: var(--black);
+  color: var(--yellow);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 999px;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.services__more:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- 右側：公式キャラクター らい太くんがご案内 ---------- */
+.hero__raita {
+  position: absolute;
+  right: 2vw;
+  bottom: 5%;
+  z-index: 2;
+  width: clamp(200px, 29vw, 410px);
+  text-align: center;
+}
+.hero__raita img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 16px 22px rgba(0, 0, 0, 0.22));
+  animation: float 5.5s ease-in-out infinite;
+}
+.hero__raita-label {
+  display: inline-block;
+  margin-top: 2px;
+  font-family: var(--font-hand);
+  font-size: 13px;
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  padding: 5px 18px;
+  transform: rotate(-2deg);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.18);
+}
+
+/* ============================================================
+   セクション2：ビジョン
+============================================================ */
+.vision {
+  background: var(--yellow);
+  padding: 22px;
+}
+.vision__frame {
+  position: relative;
+  background: var(--white);
+  padding: 110px 6vw 90px;
+  overflow: hidden;
+}
+
+.vision__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 5vw;
+  align-items: center;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.vision__title {
+  margin-bottom: 40px;
+  transform: rotate(-3deg);
+  line-height: 1.12;
+  filter: url(#rough);
+}
+.vision__title-row {
+  display: block;
+  font-weight: 900;
+  font-size: clamp(36px, 5.2vw, 72px);
+  letter-spacing: 0.04em;
+  position: relative;
+}
+.vision__title-row--small {
+  font-size: clamp(28px, 3.8vw, 54px);
+  margin-left: 1.4em;
+}
+.vision__henjin {
+  position: relative;
+  font-family: var(--font-brush);
+  font-weight: 400;
+  font-size: 1.8em;
+  vertical-align: -0.1em;
+  padding: 0 0.1em;
+  z-index: 1;
+}
+.vision__henjin::before {
+  content: "";
+  position: absolute;
+  inset: 12% -6% 2% -6%;
+  background: var(--yellow);
+  z-index: -1;
+  filter: url(#brush-edge);
+  border-radius: 48% 52% 50% 50% / 55% 45% 50% 50%;
+}
+.vision__kagayaku {
+  position: relative;
+  z-index: 1;
+}
+.vision__kagayaku::before {
+  content: "";
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  top: 55%;
+  bottom: 0;
+  background: var(--yellow);
+  z-index: -1;
+  filter: url(#brush-edge);
+  border-radius: 50% 50% 45% 55% / 60% 45% 55% 40%;
+}
+
+.vision__copy {
+  font-weight: 500;
+  font-size: clamp(14px, 1.35vw, 17px);
+  line-height: 2.2;
+}
+
+.vision__visual { position: relative; padding: 40px 30px 30px; }
+.photo--vision {
+  width: 100%;
+  height: clamp(260px, 30vw, 380px);
+  transform: rotate(2deg);
+}
+.vision__route {
+  position: absolute;
+  bottom: -18px;
+  left: -10%;
+  width: 80%;
+  opacity: 0.8;
+}
+
+/* 手書き風キーワードタグ */
+.hand-tag {
+  position: absolute;
+  z-index: 4;
+  font-family: var(--font-hand);
+  font-size: clamp(16px, 1.6vw, 22px);
+  background: var(--yellow);
+  border: 2.5px solid var(--black);
+  border-radius: 50% 46% 52% 48% / 55% 48% 52% 45%;
+  padding: 10px 20px;
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.18);
+}
+.hand-tag--1 { top: -2px; right: 18%; transform: rotate(-6deg); }
+.hand-tag--2 { top: 34%; left: -16px; transform: rotate(5deg); }
+.hand-tag--3 { bottom: 4%; right: -6px; transform: rotate(-4deg); }
+
+/* ============================================================
+   セクション3：取扱い（事業内容）
+============================================================ */
+.services {
+  position: relative;
+  background: var(--white);
+  padding: 110px 5vw 150px;
+  overflow: hidden;
+}
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 40% 30% at 95% 5%, rgba(255, 225, 0, 0.35), transparent 70%),
+    radial-gradient(ellipse 35% 25% at 3% 60%, rgba(255, 225, 0, 0.25), transparent 70%);
+  pointer-events: none;
+}
+.services__plane {
+  position: absolute;
+  top: 34px;
+  right: 5vw;
+  width: 64px;
+  fill: var(--black);
+  transform: rotate(-12deg);
+  animation: float 4s ease-in-out infinite;
+}
+
+.services__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  gap: clamp(24px, 3vw, 48px);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.services__heading {
+  font-size: clamp(17px, 1.6vw, 21px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  border-bottom: 4px solid var(--black);
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.services__heading-ic { width: 20px; height: 20px; stroke-width: 2.2; }
+
+/* 列1：サービス一覧のアイコン格子 */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.service-card {
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 12px;
+  padding: 16px 10px 14px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  box-shadow: 4px 4px 0 var(--black);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.service-card:hover {
+  transform: translate(-2px, -2px);
+  background: var(--yellow);
+  box-shadow: 7px 7px 0 var(--black);
+}
+.service-card__icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.6;
+  margin: 0 auto 8px;
+}
+
+/* 列1：LikeTigerの3つの事業（名刺の裏面と同じリボン型・3色） */
+.services__lead {
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.7;
+  margin: -8px 0 22px;
+}
+.services__lead strong {
+  font-size: 1.25em;
+  font-weight: 900;
+  background: linear-gradient(transparent 60%, var(--yellow) 60% 92%, transparent 92%);
+}
+.axis-list { display: flex; flex-direction: column; gap: 20px; }
+.axis {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.axis__num {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 56px;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1;
+}
+.axis__body {
+  flex: 1;
+  padding: 11px 34px 11px 18px;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%);
+}
+.axis__body--yellow { background: var(--yellow); }
+.axis__body--pink { background: #F7A8C8; }
+.axis__body--cyan { background: #7FE0EE; }
+.axis__body--lime { background: #BEF06A; }
+.axis__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16.5px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+.axis__ic { width: 19px; height: 19px; stroke-width: 2; }
+.axis__desc {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-top: 3px;
+  padding-left: 27px;
+}
+
+/* 列3：実績・強み */
+.strength-list { display: flex; flex-direction: column; gap: 18px; }
+.strength {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--yellow);
+  border-radius: 12px;
+  padding: 18px 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+.strength__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 50%;
+}
+.strength__icon .ic { width: 23px; height: 23px; }
+.strength__title {
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+.strength__desc { font-size: 13px; line-height: 1.7; }
+
+/* ---------- 公式キャラクター らい太くん ---------- */
+.contact__raita {
+  position: absolute;
+  right: 3.5vw;
+  bottom: 85px;
+  z-index: 3;
+  text-align: center;
+}
+.contact__raita img {
+  width: clamp(110px, 14vw, 200px);
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.25));
+  animation: float 5s ease-in-out infinite;
+}
+.contact__raita-label {
+  display: inline-block;
+  margin-top: 4px;
+  font-family: var(--font-hand);
+  font-size: 12.5px;
+  line-height: 1.5;
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 10px;
+  padding: 5px 12px;
+  transform: rotate(-2deg);
+}
+
+/* ---------- 世界の名所シルエット帯 ---------- */
+.skyline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  pointer-events: none;
+}
+.skyline svg { width: 100%; height: clamp(50px, 8vw, 100px); }
+.skyline--yellow svg { fill: var(--yellow); stroke: var(--yellow); }
+.skyline--dark svg { fill: rgba(0, 0, 0, 0.16); stroke: rgba(0, 0, 0, 0.16); }
+
+/* ============================================================
+   セクション4：自己紹介（代表プロフィール）
+============================================================ */
+.profile {
+  position: relative;
+  background: var(--yellow);
+  padding: 110px 5vw 100px;
+  overflow: hidden;
+}
+.profile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 40% at 90% 90%, rgba(255, 255, 255, 0.4), transparent 65%),
+    radial-gradient(ellipse 40% 35% at 5% 10%, rgba(0, 0, 0, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+.profile__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr 0.9fr;
+  gap: clamp(24px, 3.2vw, 52px);
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* 左：写真コラージュ */
+.profile__visual {
+  position: relative;
+  height: clamp(420px, 46vw, 600px);
+}
+.photo--profile-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 88%;
+  height: 64%;
+  transform: rotate(-3deg);
+  z-index: 2;
+}
+.photo--profile-sub1 {
+  position: absolute;
+  bottom: 10%;
+  left: 6%;
+  width: 46%;
+  height: 30%;
+  transform: rotate(4deg);
+  z-index: 3;
+}
+.photo--profile-sub2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 44%;
+  height: 34%;
+  transform: rotate(-6deg);
+  z-index: 1;
+}
+.profile__plane {
+  position: absolute;
+  top: -22px;
+  right: 4%;
+  width: 64px;
+  fill: var(--black);
+  transform: rotate(14deg) scaleX(-1);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* 中央：名前・経歴 */
+.profile__role {
+  font-weight: 700;
+  font-size: clamp(14px, 1.3vw, 17px);
+  letter-spacing: 0.2em;
+}
+.profile__name {
+  font-weight: 900;
+  font-size: clamp(36px, 4.2vw, 56px);
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.profile__motto {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: clamp(26px, 2.6vw, 36px);
+  transform: rotate(-2deg);
+  display: inline-block;
+  background: linear-gradient(transparent 65%, var(--white) 65% 92%, transparent 92%);
+  padding: 0 8px;
+  margin-bottom: 26px;
+}
+.profile__rice {
+  display: inline-block;
+  width: clamp(28px, 3vw, 40px);
+  height: clamp(28px, 3vw, 40px);
+  vertical-align: -0.32em;
+  margin-left: 6px;
+}
+
+.career-list { display: flex; flex-direction: column; gap: 12px; }
+.career-list li {
+  position: relative;
+  background: var(--white);
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.6;
+  padding: 10px 14px 10px 40px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+.career-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 12px;
+  top: 9px;
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  background: var(--black);
+  color: var(--yellow);
+  font-size: 12px;
+  font-weight: 900;
+  border-radius: 4px;
+}
+
+/* 国一覧ページへのリンクボタン */
+.countries-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  background: var(--black);
+  color: var(--yellow);
+  font-weight: 900;
+  font-size: 14.5px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding: 13px 28px;
+  border-radius: 999px;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.countries-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 rgba(0, 0, 0, 0.25);
+}
+.countries-link .ic { width: 19px; height: 19px; stroke-width: 2; }
+
+/* 右：原動力ボックス＋吹き出し */
+.profile__side {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 20px;
+}
+.drive-box {
+  background: var(--white);
+  border: 3px solid var(--black);
+  border-radius: 14px;
+  padding: 24px 22px;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.85);
+}
+.drive-box__title {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  background: linear-gradient(transparent 60%, var(--yellow) 60% 92%, transparent 92%);
+  margin-bottom: 12px;
+}
+.drive-box__text { font-size: 13.5px; line-height: 1.9; }
+
+.bubble {
+  position: relative;
+  background: var(--white);
+  border: 2.5px dashed var(--black);
+  border-radius: 18px;
+  padding: 20px 20px;
+  transform: rotate(-2deg);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 36px;
+  width: 18px;
+  height: 18px;
+  background: var(--white);
+  border-top: 2.5px dashed var(--black);
+  border-left: 2.5px dashed var(--black);
+  transform: rotate(45deg);
+}
+.bubble__text {
+  font-family: var(--font-hand);
+  font-size: 14.5px;
+  line-height: 1.9;
+}
+
+/* ============================================================
+   セクション5：お問い合わせ
+============================================================ */
+.contact {
+  position: relative;
+  background: var(--yellow);
+  padding: 110px 5vw 170px;
+  overflow: hidden;
+}
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 45% at 50% 0%, rgba(255, 255, 255, 0.45), transparent 65%);
+  pointer-events: none;
+}
+
+.contact__inner {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.contact__title {
+  position: relative;
+  text-align: center;
+  font-size: clamp(26px, 3.4vw, 42px);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  margin-bottom: 50px;
+}
+.contact__route {
+  position: absolute;
+  top: -26px;
+  right: clamp(0px, 8vw, 120px);
+  width: clamp(120px, 16vw, 220px);
+}
+.contact__plane {
+  position: absolute;
+  top: -52px;
+  right: clamp(-10px, 6vw, 100px);
+  width: 60px;
+  fill: var(--black);
+  transform: rotate(-14deg);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* フォーム */
+.contact-form__row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 26px;
+}
+.field__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.field__box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  border: 2.5px solid var(--black);
+  border-radius: 10px;
+  padding: 4px 14px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.field__box:focus-within {
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.8);
+  transform: translate(-2px, -2px);
+}
+.field__box--textarea { align-items: flex-start; padding-top: 12px; }
+.field__icon { width: 18px; height: 18px; opacity: 0.5; }
+.field__box--textarea .field__icon { margin-top: 10px; }
+.field input,
+.field textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-family: var(--font-jp);
+  font-size: 14.5px;
+  padding: 10px 0;
+  background: transparent;
+  resize: vertical;
+}
+.field input::placeholder,
+.field textarea::placeholder { color: #aaa; }
+.field--wide { margin-bottom: 40px; }
+
+.contact-form__submit {
+  display: block;
+  margin: 0 auto;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-jp);
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  border: none;
+  border-radius: 999px;
+  padding: 18px 90px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25);
+}
+.contact-form__submit:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 0 rgba(0, 0, 0, 0.25);
+}
+.contact-form__thanks {
+  text-align: center;
+  font-weight: 900;
+  font-size: 16px;
+  margin-top: 26px;
+  background: var(--white);
+  border: 2.5px solid var(--black);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+/* ============================================================
+   フッター（会社概要）
+============================================================ */
+.footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 60px 6vw 30px;
+}
+.footer__inner { max-width: 900px; margin: 0 auto; }
+.footer__logo {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: 34px;
+  line-height: 1;
+}
+.footer__mark {
+  width: 30px;
+  height: auto;
+  margin-right: 12px;
+}
+.footer__logo span { color: var(--yellow); }
+.footer__official {
+  width: auto;
+  height: 46px;
+}
+.footer__concept {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--yellow);
+  margin: 8px 0 32px;
+}
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 26px;
+  font-size: 13.5px;
+}
+.footer__info > div {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 14px;
+}
+.footer__info dt {
+  color: var(--yellow);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.footer__info a { color: var(--white); text-decoration-color: var(--yellow); }
+.footer__links {
+  margin-top: 28px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+.footer__links a {
+  color: var(--yellow);
+  text-decoration: none;
+  border-bottom: 1px solid var(--yellow);
+  padding-bottom: 2px;
+}
+.footer__copyright {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 44px;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   レスポンシブ（タブレット・スマホ）
+============================================================ */
+@media (max-width: 1024px) {
+  .services__inner { grid-template-columns: 1fr 1fr; }
+  .services__col:first-child { grid-column: 1 / -1; }
+  .services__grid { grid-template-columns: repeat(5, 1fr); }
+  .profile__inner { grid-template-columns: 1fr 1.3fr; }
+  .profile__side { grid-column: 1 / -1; flex-direction: row; }
+  .profile__side > * { flex: 1; }
+}
+
+@media (max-width: 768px) {
+  .section-tag { top: 16px; left: 16px; font-size: 12px; padding: 6px 14px; }
+  .site-nav { top: 54px; right: 12px; gap: 6px; }
+  .site-nav a { font-size: 10.5px; padding: 6px 12px; }
+
+  /* ヒーロー */
+  .hero {
+    padding: 84px 6vw 70px;
+    min-height: auto;
+    display: block;
+  }
+  .hero__text { max-width: 100%; }
+  .hero__brand { top: 16px; left: 16px; }
+  .hero__brand img { width: 124px; }
+  .hero__raita {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 60vw;
+    max-width: 290px;
+    margin: 30px auto 0;
+  }
+  .brush--left { display: none; }
+  .brush--bottom-left { width: 70vw; height: 9%; bottom: -4%; }
+  .brush--bottom-right { width: 50vw; height: 10%; bottom: -5%; }
+  .hero__loop, .hero__plane-mini { display: none; }
+  .hero__globe { width: 70vw; left: -20%; top: 2%; }
+  .hero__copy br { display: none; }
+
+  /* ビジョン */
+  .vision { padding: 12px; }
+  .vision__frame { padding: 84px 7vw 70px; }
+  .vision__inner { grid-template-columns: 1fr; gap: 56px; }
+  .vision__title-row--small { margin-left: 0.4em; }
+  .vision__copy br { display: none; }
+
+  /* 取扱い */
+  .services { padding: 90px 6vw 130px; }
+  .services__inner { grid-template-columns: 1fr; gap: 40px; }
+  .services__col:first-child { grid-column: auto; }
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* 自己紹介 */
+  .profile { padding: 90px 6vw 80px; }
+  .profile__inner { grid-template-columns: 1fr; }
+  .profile__visual { height: 96vw; max-height: 460px; }
+  .profile__side { flex-direction: column; }
+
+  /* お問い合わせ */
+  .contact { padding: 90px 6vw 190px; }
+  .contact__raita { right: 5vw; bottom: 60px; }
+  .contact__raita img { width: 96px; }
+  .contact__raita-label { font-size: 10.5px; padding: 4px 9px; }
+  .contact-form__row { grid-template-columns: 1fr; }
+  .contact__route, .contact__plane { display: none; }
+  .contact-form__submit { width: 100%; padding: 18px 0; }
+
+  /* フッター */
+  .footer__info > div { grid-template-columns: 1fr; gap: 0; }
+}
+
+/* ============================================================
+   お取引先（PARTNERS）
+============================================================ */
+.partners {
+  position: relative;
+  background: #FAFAF6;
+  padding: 92px 6vw 100px;
+  text-align: center;
+  border-top: 3px solid var(--black);
+}
+.partners__inner { max-width: 900px; margin: 0 auto; }
+.partners__en {
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  opacity: 0.5;
+}
+.partners__title {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 900;
+  margin: 4px 0 10px;
+}
+.partners__lead {
+  font-weight: 500;
+  font-size: 14.5px;
+  margin-bottom: 42px;
+}
+.partners__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+.partners__item {
+  display: grid;
+  place-items: center;
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 12px;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.12);
+  padding: 26px 34px;
+  width: clamp(220px, 30vw, 300px);
+  height: 132px;
+  transition: transform 0.22s ease;
+}
+.partners__item:hover { transform: translateY(-5px); }
+.partners__item img {
+  max-width: 100%;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+@media (max-width: 720px) {
+  .partners { padding: 70px 6vw 78px; }
+  .partners__list { gap: 18px; }
+  .partners__item { width: 100%; max-width: 320px; height: 112px; padding: 20px 28px; }
+}
