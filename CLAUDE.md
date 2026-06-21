@@ -216,6 +216,34 @@ Googleドライブ共有フォルダ「HP関係」（ID: `1uO_YeD8JPld0NwgCCecEO
 - 事業の実績は black box カード化。事例の追加や数字の修正があれば business.html の `.case-list` を編集
 - お問い合わせフォーム送信機能・独自ドメインは引き続き未対応
 
+## 作業ログ（2026-06-21〜22）
+
+### GitHub化（ChatGPTのCodex連携の準備）
+- このプロジェクトを **git 管理化し、GitHub に非公開リポジトリとして公開**：**https://github.com/shumpei1118/like-tiger-hp**（アカウント shumpei1118）
+  - 目的：今後 **ChatGPT の中の「Codex」** でも編集できるようにするため（CodexはGitHub上のリポジトリしか触れない）
+  - `.gitignore` で `素材/`・`Like tiger HP参考/`・`.DS_Store`・`.vercel` を除外（容量大の原本はMacのみ保管）
+  - **Codex用の指示書 `AGENTS.md` を新規作成**（Codexが自動で読む。CLAUDE.mdのCodex版。`.vercelignore`で公開対象外）
+- 再プッシュ方法：このフォルダで `git add -A && git commit -m "..." && git push`
+
+### トップ改修第6弾（クライアント／Codex併用での大型改修）
+- **入口ゲート新設**（index.html 冒頭 `section.intro-gate`）：公式ロゴ(logo-black.png)だけが中央に出る全画面ファーストビュー（featuredprojects.jp 風）→ スクロールで Sales is Journey ヒーローへ
+- **ヒーロー刷新**（`hero--poster`）：h1を「Sales is Journey」に変更し大きく中央配置。背景に `images/hero-generated-journey.jpg`。左下CTA「お問い合わせはこちら」削除。`hero__company-label` で株式会社LikeTigerを黒タグ表示
+- **Codexが追加した3セクションを採用**（クライアント承認済み・全部残す）：①課題訴求 `issue-callout`「誰に頼めばいいかわからない」②`vision-lp`「世界一変人が輝く会社」③`journey-band`「人生も、営業も、旅だ」。ビジョン導入文の重複は整理
+- **活動風景セクション新設**（`activity-scenes`）：カレー畑＋地域コミュニティ。**`images/curry-field.jpg` は「お写真準備中」の仮画像**（本物の写真が素材に無いため。本物を同名で入れれば自動表示）
+- **取引先ロゴをマーキー化**（`partners__marquee`）：2列を左右逆方向にゆっくり自動スクロール（`@keyframes marquee-left/right`、hoverで一時停止、prefers-reduced-motion対応）。各列は同じ並び×2で途切れずループ
+- **飛行機SVG差し替え**：`#jet-shape` を「横から見た旅客機」に変更（**index/philosophy/business/countries の4ファイル一括**）
+- **TRAVEL LOG（countries.html）**：ヘッダの「Like」(白)+「Tiger」(黄) を **`.tl-header__logo { color: var(--yellow) }` で全部黄色に統一**
+- 上記すべて GitHub push 済み＋ Vercel 本番デプロイ済み（https://like-tiger-hp.vercel.app/）
+
+### 重要な追加メモ
+- Codex版の途中変更（HTMLはあるがCSS欠落）を補完して完成させた経緯あり。新セクションのCSSは style.css 末尾「2026-06-22 追加」ブロックに集約
+- 素材フォルダに `meishi-back.png`（名刺裏）が追加済み → 3事業の色を名刺に完全準拠させる際に参照可
+- 撮影確認のコツ：`.intro-gate{min-height:100vh}` のためヘッドレスでウィンドウを高くすると入口が巨大化。`.reveal` は演出で初期opacity:0 → 撮影時は一時的にCSSで打ち消す
+
+### 要対応（次回）
+- **カレー畑の本物写真**を `images/curry-field.jpg` で差し替え
+- お問い合わせフォーム送信機能（Formspree等）・独自ドメインは引き続き未対応
+
 ## 元情報
 - ヒヤリング内容：Googleドキュメント「ホームページ作成のためのヒアリングリスト」
   https://docs.google.com/document/d/1Vz5BjVnvkWMzCWkiZ2WgONMwuMAOxrCmEod93zx8DRQ/
