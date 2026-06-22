@@ -244,6 +244,30 @@ Googleドライブ共有フォルダ「HP関係」（ID: `1uO_YeD8JPld0NwgCCecEO
 - **カレー畑の本物写真**を `images/curry-field.jpg` で差し替え
 - お問い合わせフォーム送信機能（Formspree等）・独自ドメインは引き続き未対応
 
+## 作業ログ（2026-06-22 ②：他者への編集権限の引き渡し）
+
+### 完了したこと
+- 「公開中の本番サイトには触れず、別の人に編集権限を渡したい」という要望に対応 → **元リポジトリは複製して『編集用コピー』を作成**する方針（本人選択：A共同編集/Bコピー/CのZIPのうち **B**）
+- **編集用コピーの非公開リポジトリを作成**：**https://github.com/shumpei1118/like-tiger-hp-copy**
+  - 作成コマンド：`gh repo create like-tiger-hp-copy --private --source=. --remote=copy --push`
+  - このコピーは **Vercel にも本番サイトにも未接続**（`.vercel` はgit管理外なので複製されない）→ 相手が編集しても本番 https://like-tiger-hp.vercel.app/ に影響なし
+- 作成時にローカルの追跡先がコピー側に切り替わったため、**`git branch --set-upstream-to=origin/main main` で公開リポジトリ(origin)に戻し、`copy` リモートも削除**（このMacフォルダ＝本番の大元を維持）
+- **クライアント側担当 `tkouchiyama-coder`（GitHubユーザー名／河内山社長サイドのcoderアカウント）を編集者として招待**
+  - `gh api -X PUT repos/shumpei1118/like-tiger-hp-copy/collaborators/tkouchiyama-coder -f permission=push`（権限：write）
+  - 相手がスクショで本人ログインを確認 → **招待を承認済み・collaborators に write で登録されたことを確認**（引き渡し完了）
+- 元（本番）リポジトリ `like-tiger-hp` には**誰も招待していないことを確認済み**（安全）
+
+### 未完了・次回やること
+- **コピー側の編集を本番へ反映したくなった場合**：`like-tiger-hp-copy` の変更を `like-tiger-hp`（本番・Vercel連携）へ取り込む作業が必要（マージ/コピー）。依頼が来たら対応
+- 「コピーごと完全に相手へ譲渡（ownership transfer）」の希望が出たら、Settings→Transfer で対応可
+- （継続）カレー畑の本物写真 `images/curry-field.jpg` 差し替え／フォーム送信機能／独自ドメイン
+
+### 重要な設定・メモ
+- リポジトリ2系統：**本番＝`shumpei1118/like-tiger-hp`（Vercel連携・このMacフォルダが大元）／編集共有用＝`shumpei1118/like-tiger-hp-copy`（独立コピー・tkouchiyama-coderがwrite）**
+- 権限の取り消し：コピーの GitHub ページ → Settings → Collaborators で相手を削除すれば解除
+- 相手の編集方法：GitHub直接／ローカルclone／ChatGPTのCodexで `shumpei1118/like-tiger-hp-copy` を選択、のいずれも可
+- 招待状況の確認コマンド：`gh api repos/shumpei1118/like-tiger-hp-copy/invitations`（空＝承認済み）／`gh api repos/shumpei1118/like-tiger-hp-copy/collaborators`
+
 ## 元情報
 - ヒヤリング内容：Googleドキュメント「ホームページ作成のためのヒアリングリスト」
   https://docs.google.com/document/d/1Vz5BjVnvkWMzCWkiZ2WgONMwuMAOxrCmEod93zx8DRQ/
