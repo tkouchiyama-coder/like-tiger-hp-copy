@@ -1843,8 +1843,32 @@ body::after {
 .lp-home .axis__desc {
   padding-left: 0;
   font-size: 12px;
-  line-height: 1.6;
-  margin-top: 6px;
+  line-height: 1.7;
+  margin-top: 8px;
+  color: #333;
+}
+
+.lp-home .axis__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 4px;
+  min-height: 44px;
+}
+
+.lp-home .axis__big-icon {
+  width: 36px;
+  height: 36px;
+  fill: var(--black);
+  stroke: var(--black);
+  stroke-width: 1.6;
+  flex-shrink: 0;
+}
+
+.lp-home .axis__icons--multi .axis__big-icon {
+  width: 26px;
+  height: 26px;
 }
 
 .lp-home .strength {
