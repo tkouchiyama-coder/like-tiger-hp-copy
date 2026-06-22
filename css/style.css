@@ -177,12 +177,13 @@ body::after {
 /* 背景の地球儀（線画・ゆっくり回転） */
 .hero__globe {
   position: absolute;
-  top: 4%;
-  left: -8%;
+  top: 6%;
+  left: -4%;
   width: clamp(320px, 42vw, 640px);
-  opacity: 0.32;
+  opacity: 0.85;
   z-index: 0;
-  animation: spin 110s linear infinite;
+  animation: spin 60s linear infinite;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
 }
 @keyframes spin {
   to { transform: rotate(360deg); }
@@ -1428,7 +1429,7 @@ body::after {
 
 /* Sales is Journey: さらに左寄せ */
 .lp-home .hero__title {
-  transform: translateX(calc(-1 * clamp(130px, 22vw, 400px)));
+  transform: translateX(calc(-1 * clamp(200px, 28vw, 520px)));
 }
 
 /* 3行コピー: タイトルから少し右へ戻す */
