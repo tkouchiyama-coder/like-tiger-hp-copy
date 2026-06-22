@@ -1217,9 +1217,15 @@ body::after {
 .partners {
   position: relative;
   background: #FAFAF6;
-  padding: 92px 6vw 100px;
+  padding: 110px 6vw 130px;
   text-align: center;
-  border-top: 3px solid var(--black);
+  border-top: 6px solid var(--black);
+}
+.partners__title {
+  margin-bottom: 14px;
+}
+.partners__marquee {
+  margin-top: 36px;
 }
 .partners__inner { max-width: 1200px; margin: 0 auto; }
 .partners__en {
@@ -2191,26 +2197,16 @@ body::after {
 
 .lp-home .profile {
   background:
-    /* 虎柄ストライプ：複数の不規則な黒帯を黄色背景に重ねる */
-    repeating-linear-gradient(
-      78deg,
-      transparent 0 38px,
-      rgba(17, 17, 17, 0.92) 38px 46px,
-      transparent 46px 88px,
-      rgba(17, 17, 17, 0.92) 88px 92px,
-      transparent 92px 168px,
-      rgba(17, 17, 17, 0.92) 168px 176px,
-      transparent 176px 240px
-    ),
+    url("../images/tiger-pattern.svg") center / cover no-repeat,
     var(--yellow);
   border-top: 6px solid var(--black);
-  padding-top: 94px;
+  border-bottom: 6px solid var(--black);
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 .lp-home .profile::before {
-  background:
-    radial-gradient(ellipse 28% 22% at 4% 10%, rgba(255, 237, 0, 0.6), transparent 70%),
-    radial-gradient(ellipse 32% 26% at 98% 88%, rgba(255, 237, 0, 0.5), transparent 70%);
+  background: transparent;
 }
 
 .lp-home .profile::after {
@@ -2660,8 +2656,8 @@ body::after {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  margin-top: 6px;
+  gap: 28px;
+  margin-top: 36px;
   overflow: hidden;
   /* 左右端をふわっと消す */
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
