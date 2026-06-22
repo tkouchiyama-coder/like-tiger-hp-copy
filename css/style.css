@@ -1613,27 +1613,50 @@ body::after {
   text-align: center;
 }
 
-.issue-callout__paper {
-  font-family: "Zen Kaku Gothic New", var(--font-jp), sans-serif;
-  font-weight: 700;
-  font-size: clamp(22px, 2.8vw, 38px);
-  line-height: 1.3;
-  letter-spacing: 0.05em;
-  margin-bottom: 18px;
-  color: var(--black);
+.issue-callout__inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(14px, 1.8vw, 28px);
+  padding: 0 6vw;
 }
 
 .issue-callout__title {
   display: inline-block;
   font-family: "Zen Kaku Gothic New", var(--font-jp), sans-serif;
   font-weight: 900;
-  font-size: clamp(38px, 6.2vw, 92px);
+  font-size: clamp(38px, 6.2vw, 96px);
   line-height: 1.2;
   letter-spacing: 0.04em;
   color: var(--black);
   background: linear-gradient(transparent 58%, var(--yellow) 58% 92%, transparent 92%);
   padding: 0 0.25em;
   text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.issue-callout__paper {
+  font-family: "Zen Kaku Gothic New", var(--font-jp), sans-serif;
+  font-weight: 700;
+  font-size: clamp(20px, 2.4vw, 32px);
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  color: var(--black);
+}
+
+.issue-callout__cta {
+  font-family: "Zen Kaku Gothic New", var(--font-jp), sans-serif;
+  font-weight: 900;
+  font-size: clamp(20px, 2.6vw, 34px);
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  background: var(--black);
+  padding: 14px 36px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-top: clamp(8px, 1.5vw, 22px);
+  box-shadow: 6px 6px 0 rgba(255, 237, 0, 0.95);
 }
 
 .issue-callout__lead {
@@ -1773,8 +1796,9 @@ body::after {
 }
 
 .lp-home .services__inner {
-  grid-template-columns: 0.95fr 1.15fr 0.9fr;
+  grid-template-columns: 1fr;
   align-items: start;
+  gap: clamp(48px, 5vw, 80px);
 }
 
 .lp-home .services__heading {
