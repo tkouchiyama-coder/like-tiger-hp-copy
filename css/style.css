@@ -483,15 +483,16 @@ body::after {
   transform: rotate(-4deg);
 }
 
-/* 旅人が輝く会社（メインの大文字） */
+/* 旅人が輝く会社（メインの大文字／1行固定） */
 .vision__main {
   display: inline-block;
   font-family: "Zen Kaku Gothic New", var(--font-jp), sans-serif;
   font-weight: 900;
-  font-size: clamp(44px, 7.2vw, 104px);
+  font-size: clamp(32px, 5.8vw, 88px);
   line-height: 1.1;
   letter-spacing: 0.02em;
   color: #000000;
+  white-space: nowrap;
   text-shadow:
     6px 6px 0 rgba(255, 237, 0, 0.95),
     12px 12px 0 rgba(0, 0, 0, 0.14);
