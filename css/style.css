@@ -1988,25 +1988,26 @@ body::after {
 .lp-home .services__heading {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   background: transparent;
   color: #000000;
   border: 0;
-  padding: 0;
-  margin-bottom: 22px;
-  font-family: var(--font-en), "Zen Kaku Gothic New", var(--font-jp), sans-serif;
+  border-bottom: 3px solid var(--black);
+  padding: 0 4px 8px;
+  margin-bottom: 18px;
+  font-family: "Zen Kaku Gothic New", var(--font-jp), sans-serif;
   font-weight: 900;
   font-style: normal;
-  font-size: clamp(28px, 4vw, 56px);
-  letter-spacing: 0.02em;
-  line-height: 1.1;
+  font-size: clamp(16px, 1.8vw, 22px);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
   transform: none;
 }
 
 .lp-home .services__heading-ic {
-  width: clamp(28px, 3vw, 44px);
-  height: clamp(28px, 3vw, 44px);
-  stroke-width: 1.8;
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
 }
 
 .lp-home .services__lead {
