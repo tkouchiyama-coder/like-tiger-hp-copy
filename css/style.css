@@ -426,55 +426,61 @@ body::after {
 }
 
 .vision__title {
-  margin-bottom: 40px;
-  transform: rotate(-3deg);
-  line-height: 1.12;
-  filter: url(#rough);
+  margin-bottom: 36px;
+  transform: none;
+  line-height: 1.2;
+  filter: none;
+  font-family: "Zen Kaku Gothic New", var(--font-jp), sans-serif;
+  font-weight: 900;
+  color: #000000;
 }
 .vision__title-row {
   display: block;
+  font-family: "Zen Kaku Gothic New", var(--font-jp), sans-serif;
   font-weight: 900;
-  font-size: clamp(36px, 5.2vw, 72px);
-  letter-spacing: 0.04em;
+  font-size: clamp(36px, 5.6vw, 78px);
+  letter-spacing: 0.02em;
+  color: #000000;
   position: relative;
 }
 .vision__title-row--small {
-  font-size: clamp(28px, 3.8vw, 54px);
-  margin-left: 1.4em;
+  font-size: clamp(36px, 5.6vw, 78px);
+  margin-left: 0;
 }
 .vision__henjin {
   position: relative;
-  font-family: var(--font-brush);
-  font-weight: 400;
-  font-size: 1.8em;
-  vertical-align: -0.1em;
-  padding: 0 0.1em;
+  font-family: "Zen Kaku Gothic New", var(--font-jp), sans-serif;
+  font-weight: 900;
+  font-size: 1em;
+  vertical-align: baseline;
+  padding: 0 0.18em;
   z-index: 1;
+  color: #000000;
 }
 .vision__henjin::before {
   content: "";
   position: absolute;
-  inset: 12% -6% 2% -6%;
+  inset: 18% -4% 6% -4%;
   background: var(--yellow);
   z-index: -1;
-  filter: url(#brush-edge);
-  border-radius: 48% 52% 50% 50% / 55% 45% 50% 50%;
+  border-radius: 6px;
 }
 .vision__kagayaku {
   position: relative;
   z-index: 1;
+  padding: 0 0.12em;
+  color: #000000;
 }
 .vision__kagayaku::before {
   content: "";
   position: absolute;
   left: -4%;
   right: -4%;
-  top: 55%;
-  bottom: 0;
+  top: 58%;
+  bottom: 6%;
   background: var(--yellow);
   z-index: -1;
-  filter: url(#brush-edge);
-  border-radius: 50% 50% 45% 55% / 60% 45% 55% 40%;
+  border-radius: 4px;
 }
 
 .vision__copy {
