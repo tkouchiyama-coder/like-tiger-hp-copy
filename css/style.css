@@ -1464,11 +1464,11 @@ body::after {
 }
 
 .lp-home .hero__brand {
-  background: rgba(255, 255, 255, 0.82);
-  border: 2px solid rgba(17, 17, 17, 0.16);
-  border-radius: 8px;
-  padding: 8px 12px;
-  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.12);
+  background: #FFED00;
+  border: 2px solid var(--black);
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.16);
 }
 
 .lp-home .site-nav a {
@@ -2034,20 +2034,23 @@ body::after {
 }
 
 .lp-home .axis-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(12px, 1.4vw, 22px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.6vw, 24px);
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .lp-home .axis {
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
+  text-align: left;
+  gap: 18px;
   background: var(--white);
   border: 2.5px solid var(--black);
   /* 不規則な角丸でハンドメイド感 */
   border-radius: 22px 18px 26px 16px / 18px 26px 16px 22px;
-  padding: 20px 16px 18px;
+  padding: 18px 22px;
   box-shadow: 5px 7px 0 rgba(0, 0, 0, 0.12);
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -2056,15 +2059,15 @@ body::after {
 /* カードごとに微妙に違う傾き＝手で並べた感じ */
 .lp-home .axis--cyan {
   background: #B7EBF3;
-  transform: rotate(-1.4deg);
+  transform: rotate(-0.6deg);
 }
 .lp-home .axis--lime {
   background: #D4EFA0;
-  transform: rotate(0.9deg);
+  transform: rotate(0.4deg);
 }
 .lp-home .axis--pink {
   background: #F8C5D8;
-  transform: rotate(-0.6deg);
+  transform: rotate(-0.3deg);
 }
 
 /* カード左上に紙のテープ風アクセント */
@@ -2100,14 +2103,15 @@ body::after {
 .lp-home .axis__num {
   width: auto;
   height: auto;
-  margin: 4px 0 6px;
+  margin: 0;
   background: transparent;
   color: var(--black);
   font-family: var(--font-en);
   font-style: italic;
-  font-size: 38px;
+  font-size: clamp(42px, 5vw, 60px);
   line-height: 1;
   text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
 }
 
 .lp-home .axis__body {
@@ -2115,30 +2119,33 @@ body::after {
   clip-path: none;
   background: transparent;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .lp-home .axis__title {
-  justify-content: center;
-  font-size: 14px;
-  line-height: 1.4;
+  justify-content: flex-start;
+  font-size: clamp(16px, 1.8vw, 22px);
+  line-height: 1.35;
   flex-wrap: wrap;
 }
 
 .lp-home .axis__desc {
   padding-left: 0;
-  font-size: 12px;
-  line-height: 1.7;
-  margin-top: 8px;
-  color: #333;
+  font-size: clamp(13px, 1.3vw, 15px);
+  line-height: 1.65;
+  margin-top: 4px;
+  color: #1a1a1a;
 }
 
 .lp-home .axis__icons {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  margin: 10px 0 4px;
-  min-height: 44px;
+  margin: 6px 0 2px;
+  min-height: auto;
 }
 
 .lp-home .axis__big-icon {
@@ -2156,26 +2163,29 @@ body::after {
 }
 
 .lp-home .strength-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: clamp(14px, 1.6vw, 24px);
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .lp-home .strength {
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
+  text-align: left;
+  gap: 18px;
   background: var(--white);
   border: 2.5px solid var(--black);
   /* 不規則な角丸 */
   border-radius: 20px 18px 22px 16px / 16px 22px 18px 20px;
   box-shadow: 5px 7px 0 rgba(0, 0, 0, 0.12);
-  padding: 18px 14px 16px;
+  padding: 18px 22px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.lp-home .strength-list > .strength:nth-child(1) { transform: rotate(-0.8deg); }
-.lp-home .strength-list > .strength:nth-child(2) { transform: rotate(0.5deg); }
-.lp-home .strength-list > .strength:nth-child(3) { transform: rotate(-1deg); }
+.lp-home .strength-list > .strength:nth-child(1) { transform: rotate(-0.4deg); }
+.lp-home .strength-list > .strength:nth-child(2) { transform: rotate(0.3deg); }
+.lp-home .strength-list > .strength:nth-child(3) { transform: rotate(-0.5deg); }
 .lp-home .strength:hover {
   transform: rotate(0deg) translateY(-3px);
   box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.18);
@@ -2184,9 +2194,10 @@ body::after {
 .lp-home .strength__icon {
   background: var(--yellow);
   border: 2px solid var(--black);
-  width: 48px;
-  height: 48px;
-  margin-bottom: 10px;
+  width: 56px;
+  height: 56px;
+  margin: 0;
+  flex-shrink: 0;
 }
 
 .lp-home .strength__icon .ic {
@@ -2199,15 +2210,17 @@ body::after {
 }
 
 .lp-home .strength__title {
-  font-size: 17px;
+  font-size: clamp(17px, 1.8vw, 22px);
   font-weight: 900;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  text-align: left;
 }
 
 .lp-home .strength__desc {
-  font-size: 13px;
-  line-height: 1.75;
-  color: #333;
+  font-size: clamp(13px, 1.3vw, 15px);
+  line-height: 1.7;
+  color: #1a1a1a;
+  text-align: left;
 }
 
 .journey-band {
