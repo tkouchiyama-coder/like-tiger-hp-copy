@@ -390,7 +390,7 @@ body::after {
   margin-top: 2px;
   font-family: var(--font-hand);
   font-size: 13px;
-  background: var(--white);
+  background: #FFED00;
   border: 2px solid var(--black);
   border-radius: 999px;
   padding: 5px 18px;
@@ -1262,8 +1262,7 @@ body::after {
 
 .lp-home .hero--poster::before {
   background:
-    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255, 255, 255, 0.25), transparent 66%),
-    radial-gradient(ellipse 35% 30% at 88% 18%, rgba(255, 255, 255, 0.35), transparent 60%);
+    radial-gradient(ellipse 50% 38% at 50% 50%, rgba(255, 237, 0, 0.6), transparent 70%);
   z-index: 1;
 }
 
@@ -1426,8 +1425,8 @@ body::after {
   color: #050505;
   text-transform: none;
   text-shadow:
-    6px 6px 0 rgba(255, 255, 255, 0.72),
-    12px 12px 0 rgba(0, 0, 0, 0.11);
+    6px 6px 0 rgba(255, 237, 0, 0.95),
+    12px 12px 0 rgba(0, 0, 0, 0.18);
 }
 
 .lp-home .hero__title span {
