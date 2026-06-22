@@ -1426,9 +1426,9 @@ body::after {
   backdrop-filter: none;
 }
 
-/* Sales is Journey: もっと左寄せ */
+/* Sales is Journey: さらに左寄せ */
 .lp-home .hero__title {
-  transform: translateX(calc(-1 * clamp(80px, 16vw, 280px)));
+  transform: translateX(calc(-1 * clamp(130px, 22vw, 400px)));
 }
 
 /* 3行コピー: タイトルから少し右へ戻す */
