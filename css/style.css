@@ -242,7 +242,7 @@ body::after {
 }
 .site-nav a {
   display: inline-block;
-  background: #FFFFFF;
+  background: #FFED00;
   border: 1.5px solid var(--black);
   color: var(--black);
   font-size: 12.5px;
@@ -258,9 +258,9 @@ body::after {
   transform: translateY(-2px);
   box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.18);
 }
-/* お問い合わせCTAも同じ白背景黒文字に統一 */
+/* お問い合わせCTAも同じ黄色背景黒文字に統一 */
 .site-nav .site-nav__cta {
-  background: #FFFFFF;
+  background: #FFED00;
   color: var(--black);
 }
 
@@ -1008,15 +1008,18 @@ body::after {
 ============================================================ */
 .contact {
   position: relative;
-  background: var(--yellow);
+  background: #FFFFFF;
   padding: 110px 5vw 170px;
   overflow: hidden;
+  border-top: 3px solid var(--black);
 }
 .contact::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 55% 45% at 50% 0%, rgba(255, 255, 255, 0.45), transparent 65%);
+  background:
+    radial-gradient(ellipse 36% 26% at 12% 8%, rgba(255, 237, 0, 0.22), transparent 70%),
+    radial-gradient(ellipse 36% 26% at 88% 92%, rgba(255, 237, 0, 0.18), transparent 70%);
   pointer-events: none;
 }
 
@@ -1349,7 +1352,7 @@ body::after {
    2026-06-21 参考LP寄せ：Sales is Journey フルLP版
 ============================================================ */
 .lp-home {
-  background: #FFED00;
+  background: #FFFFFF;
 }
 
 .lp-home .hero--poster {
@@ -1357,13 +1360,14 @@ body::after {
   padding: 60px 5vw 60px;
   align-items: center;
   justify-content: center;
-  background: #FFED00;
-  border-bottom: 4px solid var(--black);
+  background: #FFFFFF;
+  border-bottom: 3px solid var(--black);
 }
 
 .lp-home .hero--poster::before {
   background:
-    radial-gradient(ellipse 50% 38% at 50% 50%, rgba(255, 237, 0, 0.6), transparent 70%);
+    radial-gradient(ellipse 32% 24% at 14% 16%, rgba(255, 237, 0, 0.22), transparent 70%),
+    radial-gradient(ellipse 28% 22% at 86% 82%, rgba(255, 237, 0, 0.18), transparent 70%);
   z-index: 1;
 }
 
@@ -1468,7 +1472,7 @@ body::after {
 }
 
 .lp-home .site-nav a {
-  background: #FFFFFF;
+  background: #FFED00;
   border-radius: 999px;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
 }
@@ -1536,12 +1540,12 @@ body::after {
   font-size: clamp(46px, 8vw, 132px);
   line-height: 1;
   letter-spacing: 0;
-  color: #050505;
+  color: #000000;
   text-transform: none;
   white-space: nowrap;
   text-shadow:
-    6px 6px 0 rgba(255, 237, 0, 0.95),
-    12px 12px 0 rgba(0, 0, 0, 0.18);
+    4px 4px 0 rgba(0, 0, 0, 0.10),
+    7px 7px 0 rgba(255, 237, 0, 0.55);
 }
 
 .lp-home .hero__title span {
@@ -1637,12 +1641,12 @@ body::after {
   display: grid;
   place-items: center;
   overflow: hidden;
-  border-top: 4px solid var(--black);
-  border-bottom: 4px solid var(--black);
+  border-top: 3px solid var(--black);
+  border-bottom: 3px solid var(--black);
   background:
-    radial-gradient(ellipse 24% 42% at 0% 0%, rgba(255, 237, 0, 0.6), transparent 70%),
-    radial-gradient(ellipse 24% 42% at 100% 100%, rgba(255, 237, 0, 0.6), transparent 70%),
-    #fffef7;
+    radial-gradient(ellipse 22% 36% at 0% 0%, rgba(255, 237, 0, 0.22), transparent 70%),
+    radial-gradient(ellipse 22% 36% at 100% 100%, rgba(255, 237, 0, 0.18), transparent 70%),
+    #FFFFFF;
 }
 
 .issue-callout__bg {
@@ -1949,7 +1953,7 @@ body::after {
 .lp-home .services {
   min-height: 100vh;
   padding: 60px 5vw 60px;
-  background: var(--yellow);
+  background: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
