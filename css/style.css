@@ -242,7 +242,7 @@ body::after {
 }
 .site-nav a {
   display: inline-block;
-  background: rgba(17, 17, 17, 0.08);
+  background: #FFFFFF;
   border: 1.5px solid var(--black);
   color: var(--black);
   font-size: 12.5px;
@@ -251,13 +251,17 @@ body::after {
   text-decoration: none;
   padding: 8px 18px;
   border-radius: 999px;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.site-nav a:hover { transform: translateY(-2px); }
-.site-nav .site-nav__cta,
 .site-nav a:hover {
-  background: var(--black);
-  color: var(--yellow);
+  transform: translateY(-2px);
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.18);
+}
+/* お問い合わせCTAも同じ白背景黒文字に統一 */
+.site-nav .site-nav__cta {
+  background: #FFFFFF;
+  color: var(--black);
 }
 
 /* タイトル：社名＋インクのかすれ＋白ブラシの下地 */
@@ -1400,9 +1404,9 @@ body::after {
 }
 
 .lp-home .site-nav a {
-  background: rgba(255, 255, 255, 0.88);
-  border-radius: 8px;
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.12);
+  background: #FFFFFF;
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
 }
 
 .lp-home .hero__inner {
@@ -1915,14 +1919,26 @@ body::after {
 
 .lp-home .services__heading {
   display: inline-flex;
-  background: var(--black);
-  color: var(--white);
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: #000000;
   border: 0;
-  border-radius: 6px;
-  padding: 7px 15px;
-  margin-bottom: 18px;
-  font-size: 14px;
-  transform: rotate(-1deg);
+  padding: 0;
+  margin-bottom: 22px;
+  font-family: var(--font-en), "Zen Kaku Gothic New", var(--font-jp), sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: clamp(28px, 4vw, 56px);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  transform: none;
+}
+
+.lp-home .services__heading-ic {
+  width: clamp(28px, 3vw, 44px);
+  height: clamp(28px, 3vw, 44px);
+  stroke-width: 1.8;
 }
 
 .lp-home .services__lead {
