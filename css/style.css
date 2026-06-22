@@ -1613,8 +1613,7 @@ body::after {
 
 .issue-callout__title {
   display: inline;
-  font-family: "Zen Kaku Gothic New", var(--font-jp), sans-serif;
-  font-weight: 900;
+  font-family: var(--font-brush);
   font-size: clamp(46px, 6.9vw, 100px);
   line-height: 1.12;
   letter-spacing: 0.02em;
@@ -1946,8 +1945,8 @@ body::after {
 }
 
 .journey-band__title {
-  font-family: "Zen Kaku Gothic New", var(--font-jp), sans-serif;
-  font-weight: 900;
+  font-family: var(--font-brush);
+  font-weight: 400;
   font-size: clamp(40px, 6vw, 86px);
   line-height: 1.15;
   letter-spacing: 0.03em;
