@@ -117,8 +117,10 @@
           <span class="axis__num">01</span>
           <div class="axis__body">
             <h4 class="axis__title">法人コスト削減事業</h4>
-            <div class="axis__icons">
-              <svg class="axis__big-icon" aria-hidden="true"><use href="#ic-yen"/></svg>
+            <div class="axis__icons axis__icons--multi">
+              <svg class="axis__big-icon" aria-hidden="true"><use href="#ic-ai"/></svg>
+              <svg class="axis__big-icon" aria-hidden="true"><use href="#ic-printer"/></svg>
+              <svg class="axis__big-icon" aria-hidden="true"><use href="#ic-elevator"/></svg>
             </div>
             <p class="axis__desc">AI活用、複合機、エレベーター 等</p>
           </div>
@@ -138,9 +140,8 @@
           <div class="axis__body">
             <h4 class="axis__title">ライフスタイル事業</h4>
             <div class="axis__icons axis__icons--multi">
-              <svg class="axis__big-icon" aria-hidden="true"><use href="#ic-sprout"/></svg>
-              <svg class="axis__big-icon" aria-hidden="true"><use href="#ic-health"/></svg>
               <svg class="axis__big-icon" aria-hidden="true"><use href="#ic-building"/></svg>
+              <svg class="axis__big-icon" aria-hidden="true"><use href="#ic-sprout"/></svg>
             </div>
             <p class="axis__desc">農業資材販売、健康、不動産 等</p>
           </div>
@@ -511,13 +512,25 @@
       <ellipse cx="12" cy="12" rx="4" ry="8.8"/>
       <path d="M3.6,9 H20.4 M3.6,15 H20.4"/>
     </symbol>
-    <!-- 飛行機のシルエット -->
-    <g id="jet-shape">
-      <!-- 横から見た旅客機のシルエット（機首は右向き）2026-06-22 差し替え -->
-      <path d="M16,51 C20,46 40,44 72,43.4 L150,43 C172,43 187,44.4 194,47 C188,48.6 179,49 168,49.3 L150,49.6 C116,50.6 78,52.6 46,54.4 C30,55 20,54.4 16,51 Z"/>
-      <path d="M24,48 L17,27 L29,28 L44,46 Z"/>
-      <path d="M112,49 L86,73 L68,73 L94,49 Z"/>
-      <path d="M150,43.4 L176,33 L184,34.5 L168,44 Z"/>
+    <!-- 飛行機のシルエット（線画・上昇姿勢・モーションライン付）2026-06-22 -->
+    <g id="jet-shape" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <!-- 機体（胴体）右上に上昇 -->
+      <path d="M30,68 L150,32 Q172,28 178,38 Q174,46 156,52 L46,82 Z"/>
+      <!-- 主翼（下方向に伸びる影） -->
+      <path d="M62,60 L48,82 L72,80 L96,68"/>
+      <!-- 尾翼 -->
+      <path d="M150,32 L160,16 L172,18 L170,32"/>
+      <!-- コックピット窓 -->
+      <path d="M158,40 Q166,40 170,44"/>
+      <!-- 機体窓ドット -->
+      <circle cx="74" cy="60" r="1.8" fill="#111" stroke="none"/>
+      <circle cx="92" cy="54" r="1.8" fill="#111" stroke="none"/>
+      <circle cx="110" cy="48" r="1.8" fill="#111" stroke="none"/>
+      <circle cx="128" cy="42" r="1.8" fill="#111" stroke="none"/>
+      <!-- モーションライン（後方・3本） -->
+      <line x1="178" y1="56" x2="200" y2="50"/>
+      <line x1="172" y1="66" x2="200" y2="60"/>
+      <line x1="166" y1="76" x2="196" y2="70"/>
     </g>
     <g id="skyline-shape">
       <!-- 地面 -->
