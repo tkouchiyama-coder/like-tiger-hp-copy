@@ -49,13 +49,15 @@
 .ph-hero__title {
   position: relative;
   display: inline-block;
-  font-family: var(--font-en);
-  font-style: italic;
+  font-family: var(--font-en), "Zen Kaku Gothic New", var(--font-jp), sans-serif;
+  font-style: normal;
+  font-weight: 900;
   font-size: clamp(40px, 7vw, 96px);
   line-height: 1;
-  letter-spacing: -0.01em;
-  transform: rotate(-3deg);
-  filter: url(#rough);
+  letter-spacing: 0.02em;
+  color: #000000;
+  transform: none;
+  filter: none;
   margin-bottom: 30px;
 }
 .ph-hero__sub {

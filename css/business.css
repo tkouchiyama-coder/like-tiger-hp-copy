@@ -12,7 +12,7 @@
 /* ---------- 事業詳細ブロック ---------- */
 .biz {
   position: relative;
-  padding: 90px 6vw;
+  padding: 60px 6vw;
 }
 .biz:nth-of-type(odd) { background: #FAFAF6; }
 
