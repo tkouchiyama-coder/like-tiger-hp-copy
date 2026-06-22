@@ -1465,13 +1465,21 @@ body::after {
   pointer-events: auto;
 }
 
-.lp-home .hero__raita,
-.lp-home .hero__globe,
 .lp-home .hero__loop,
 .lp-home .hero__plane-mini,
 .lp-home .hero .brush,
 .hero__photo {
   display: none;
+}
+
+/* LP版でも左：水色の地球儀 / 右：らい太 を表示する */
+.lp-home .hero__globe {
+  display: block;
+  z-index: 1;
+}
+.lp-home .hero__raita {
+  display: block;
+  z-index: 4;
 }
 
 .hero__photo {
