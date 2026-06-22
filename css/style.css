@@ -373,29 +373,32 @@ body::after {
 /* ---------- 右側：公式キャラクター らい太くんがご案内 ---------- */
 .hero__raita {
   position: absolute;
-  right: 2vw;
-  bottom: 5%;
-  z-index: 2;
-  width: clamp(200px, 29vw, 410px);
+  right: 3vw;
+  top: 50%;
+  transform: translateY(-46%);
+  z-index: 4;
+  width: clamp(240px, 32vw, 460px);
   text-align: center;
 }
 .hero__raita img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 16px 22px rgba(0, 0, 0, 0.22));
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.28));
   animation: float 5.5s ease-in-out infinite;
 }
 .hero__raita-label {
   display: inline-block;
-  margin-top: 2px;
+  margin-top: 6px;
   font-family: var(--font-hand);
-  font-size: 13px;
-  background: var(--white);
-  border: 2px solid var(--black);
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--yellow);
+  color: var(--black);
+  border: 2.5px solid var(--black);
   border-radius: 999px;
-  padding: 5px 18px;
+  padding: 6px 22px;
   transform: rotate(-2deg);
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.18);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.22);
 }
 
 /* ============================================================
@@ -514,7 +517,7 @@ body::after {
 ============================================================ */
 .services {
   position: relative;
-  background: var(--white);
+  background: var(--yellow);
   padding: 110px 5vw 150px;
   overflow: hidden;
 }
@@ -1141,7 +1144,9 @@ body::after {
   .hero__raita {
     position: relative;
     right: auto;
+    top: auto;
     bottom: auto;
+    transform: none;
     width: 60vw;
     max-width: 290px;
     margin: 30px auto 0;
@@ -1465,7 +1470,6 @@ body::after {
   pointer-events: auto;
 }
 
-.lp-home .hero__raita,
 .lp-home .hero__globe,
 .lp-home .hero__loop,
 .lp-home .hero__plane-mini,
@@ -1624,7 +1628,7 @@ body::after {
 
 .vision-lp {
   position: relative;
-  background: #fffef7;
+  background: var(--yellow);
   padding: 96px 5vw 82px;
   overflow: hidden;
   border-bottom: 2px solid rgba(17, 17, 17, 0.1);
@@ -1837,11 +1841,10 @@ body::after {
   place-items: center;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.68)),
-    radial-gradient(circle at 88% 32%, rgba(255, 237, 0, 0.9), transparent 12%),
-    linear-gradient(105deg, #fff 0 36%, rgba(255, 237, 0, 0.42) 36% 64%, #fff 64%);
-  border-top: 4px solid var(--yellow);
-  border-bottom: 4px solid var(--yellow);
+    radial-gradient(circle at 88% 32%, rgba(255, 255, 255, 0.4), transparent 14%),
+    linear-gradient(105deg, var(--yellow) 0 36%, #FFD800 36% 64%, var(--yellow) 64%);
+  border-top: 4px solid var(--black);
+  border-bottom: 4px solid var(--black);
 }
 
 .journey-band__bg {
@@ -2324,7 +2327,7 @@ body::after {
 /* ---------- 活動風景（カレー畑などの現場写真）---------- */
 .activity-scenes {
   position: relative;
-  background: #fff;
+  background: #FAFAF6;
   padding: 94px 5vw 96px;
   overflow: hidden;
 }
