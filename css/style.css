@@ -2474,8 +2474,8 @@ body::after {
   width: max-content;
   will-change: transform;
 }
-.partners__track--left  { animation: marquee-left 40s linear infinite; }
-.partners__track--right { animation: marquee-right 40s linear infinite; }
+.partners__track--left  { animation: marquee-left 36s linear infinite; }
+.partners__track--right { animation: marquee-right 44s linear infinite; }
 /* マウスを乗せると一時停止 */
 .partners__marquee:hover .partners__track { animation-play-state: paused; }
 @keyframes marquee-left {
