@@ -1974,9 +1974,9 @@ body::after {
 }
 
 .lp-home .services__inner {
-  grid-template-columns: 1.2fr 0.85fr 1.2fr;
+  grid-template-columns: 1fr;
   align-items: start;
-  gap: clamp(20px, 2.5vw, 40px);
+  gap: clamp(48px, 5vw, 80px);
   width: 100%;
 }
 
@@ -1986,35 +1986,6 @@ body::after {
 
 .lp-home .services__more {
   display: none;
-}
-
-/* サービス品目（中央列）の縦リスト */
-.lp-home .service-items {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.lp-home .service-items li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--white);
-  border: 2px solid var(--black);
-  border-radius: 999px;
-  padding: 10px 18px;
-  font-weight: 700;
-  font-size: clamp(13px, 1.2vw, 15px);
-  letter-spacing: 0.04em;
-  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.12);
-  transition: transform 0.2s ease;
-}
-.lp-home .service-items li:hover {
-  transform: translateX(3px);
-}
-.lp-home .service-items li .ic {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
 }
 
 .lp-home .services__heading {
@@ -2063,21 +2034,21 @@ body::after {
 }
 
 .lp-home .axis-list {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(12px, 1.4vw, 20px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.6vw, 24px);
 }
 
 .lp-home .axis {
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 6px;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
   background: var(--white);
   border: 2.5px solid var(--black);
   /* 不規則な角丸でハンドメイド感 */
   border-radius: 22px 18px 26px 16px / 18px 26px 16px 22px;
-  padding: 14px 16px;
+  padding: 18px 16px;
   box-shadow: 5px 7px 0 rgba(0, 0, 0, 0.12);
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -2130,12 +2101,12 @@ body::after {
 .lp-home .axis__num {
   width: auto;
   height: auto;
-  margin: 0 0 2px;
+  margin: 0 0 4px;
   background: transparent;
   color: var(--black);
   font-family: var(--font-en);
   font-style: italic;
-  font-size: clamp(28px, 3vw, 38px);
+  font-size: 38px;
   line-height: 1;
   text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.7);
   flex-shrink: 0;
@@ -2146,33 +2117,30 @@ body::after {
   clip-path: none;
   background: transparent;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
 }
 
 .lp-home .axis__title {
-  justify-content: flex-start;
-  font-size: clamp(15px, 1.5vw, 18px);
-  line-height: 1.35;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1.4;
   flex-wrap: wrap;
 }
 
 .lp-home .axis__desc {
   padding-left: 0;
-  font-size: clamp(13px, 1.3vw, 15px);
-  line-height: 1.65;
-  margin-top: 4px;
-  color: #1a1a1a;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 8px;
+  color: #333;
 }
 
 .lp-home .axis__icons {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 10px;
-  margin: 6px 0 2px;
-  min-height: auto;
+  margin: 10px 0 4px;
+  min-height: 44px;
 }
 
 .lp-home .axis__big-icon {
@@ -2190,22 +2158,22 @@ body::after {
 }
 
 .lp-home .strength-list {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(12px, 1.4vw, 20px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.6vw, 24px);
 }
 
 .lp-home .strength {
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 8px;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
   background: var(--white);
   border: 2.5px solid var(--black);
   /* 不規則な角丸 */
   border-radius: 20px 18px 22px 16px / 16px 22px 18px 20px;
   box-shadow: 5px 7px 0 rgba(0, 0, 0, 0.12);
-  padding: 14px 16px;
+  padding: 18px 16px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .lp-home .strength-list > .strength:nth-child(1) { transform: rotate(-0.4deg); }
@@ -2219,9 +2187,9 @@ body::after {
 .lp-home .strength__icon {
   background: var(--yellow);
   border: 2px solid var(--black);
-  width: 44px;
-  height: 44px;
-  margin: 0;
+  width: 48px;
+  height: 48px;
+  margin: 0 0 8px;
   flex-shrink: 0;
 }
 
@@ -2235,17 +2203,17 @@ body::after {
 }
 
 .lp-home .strength__title {
-  font-size: clamp(15px, 1.5vw, 18px);
+  font-size: 16px;
   font-weight: 900;
-  margin-bottom: 2px;
-  text-align: left;
+  margin-bottom: 6px;
+  text-align: center;
 }
 
 .lp-home .strength__desc {
-  font-size: clamp(12.5px, 1.2vw, 14px);
-  line-height: 1.6;
-  color: #1a1a1a;
-  text-align: left;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #333;
+  text-align: center;
 }
 
 .journey-band {
