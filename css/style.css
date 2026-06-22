@@ -751,6 +751,16 @@ body::after {
   align-items: start;
 }
 
+/* 虎柄背景の上で文字を読みやすくする為のホワイトカード（LP版のみ） */
+.lp-home .profile__inner {
+  background: rgba(255, 254, 247, 0.94);
+  border: 3px solid var(--black);
+  border-radius: 18px;
+  padding: clamp(28px, 4vw, 56px) clamp(24px, 3vw, 48px);
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.18);
+  z-index: 2;
+}
+
 /* 左：写真コラージュ */
 .profile__visual {
   position: relative;
@@ -1211,7 +1221,7 @@ body::after {
   text-align: center;
   border-top: 3px solid var(--black);
 }
-.partners__inner { max-width: 900px; margin: 0 auto; }
+.partners__inner { max-width: 1200px; margin: 0 auto; }
 .partners__en {
   font-family: var(--font-en);
   font-size: 13px;
@@ -1409,9 +1419,9 @@ body::after {
   backdrop-filter: none;
 }
 
-/* Sales is Journey: 少し左寄せ */
+/* Sales is Journey: 少し左寄せ（transformで実際に文字を左へ） */
 .lp-home .hero__title {
-  margin-right: clamp(20px, 6vw, 100px);
+  transform: translateX(calc(-1 * clamp(40px, 9vw, 160px)));
 }
 
 /* 3行コピー: タイトルから少し右へ戻す */
@@ -2181,19 +2191,26 @@ body::after {
 
 .lp-home .profile {
   background:
+    /* 虎柄ストライプ：複数の不規則な黒帯を黄色背景に重ねる */
     repeating-linear-gradient(
-      135deg,
-      var(--yellow) 0 22px,
-      #FFE600 22px 44px
-    );
+      78deg,
+      transparent 0 38px,
+      rgba(17, 17, 17, 0.92) 38px 46px,
+      transparent 46px 88px,
+      rgba(17, 17, 17, 0.92) 88px 92px,
+      transparent 92px 168px,
+      rgba(17, 17, 17, 0.92) 168px 176px,
+      transparent 176px 240px
+    ),
+    var(--yellow);
   border-top: 6px solid var(--black);
   padding-top: 94px;
 }
 
 .lp-home .profile::before {
   background:
-    radial-gradient(ellipse 30% 24% at 4% 10%, rgba(255, 255, 255, 0.32), transparent 70%),
-    radial-gradient(ellipse 34% 28% at 98% 88%, rgba(255, 255, 255, 0.22), transparent 70%);
+    radial-gradient(ellipse 28% 22% at 4% 10%, rgba(255, 237, 0, 0.6), transparent 70%),
+    radial-gradient(ellipse 32% 26% at 98% 88%, rgba(255, 237, 0, 0.5), transparent 70%);
 }
 
 .lp-home .profile::after {
@@ -2677,13 +2694,13 @@ body::after {
   border: 2px solid var(--black);
   border-radius: 12px;
   box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.12);
-  padding: 22px 34px;
-  width: clamp(200px, 22vw, 260px);
-  height: 116px;
+  padding: 18px 24px;
+  width: clamp(160px, 17vw, 210px);
+  height: 100px;
 }
 .partners__logo img {
   max-width: 100%;
-  max-height: 64px;
+  max-height: 56px;
   object-fit: contain;
 }
 /* 動きを減らす設定の利用者には流さない（アクセシビリティ） */
