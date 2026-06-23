@@ -2912,38 +2912,43 @@ body::after {
     transform: none !important;
     white-space: nowrap;
     text-align: center;
-    font-size: clamp(22px, 7.6vw, 56px);
+    font-size: clamp(30px, 9.5vw, 70px);
     letter-spacing: -0.01em;
     line-height: 1.05;
     text-shadow:
-      3px 3px 0 #FFED00,
-      5px 5px 0 rgba(0, 0, 0, 0.18);
+      4px 4px 0 #FFED00,
+      6px 6px 0 rgba(0, 0, 0, 0.18);
   }
 
   .lp-home .hero__copy {
     margin-left: 0 !important;
     text-align: center;
-    font-size: clamp(14px, 3.8vw, 18px);
-    line-height: 1.85;
-    letter-spacing: 0.02em;
+    font-size: clamp(11px, 3vw, 14px);
+    line-height: 1.7;
+    letter-spacing: 0.01em;
     text-shadow: none;
   }
+  .lp-home .hero__copy br {
+    display: block;
+  }
 
-  /* らい太：右下固定（スマホでも） */
+  /* らい太：右下固定（ラベルが切れないように余白多め） */
   .lp-home .hero__raita {
     position: absolute;
-    right: 4vw;
+    right: 8vw;
     bottom: 5%;
     top: auto;
     transform: none;
     width: clamp(96px, 26vw, 140px);
     margin: 0;
     z-index: 4;
+    overflow: visible;
   }
   .lp-home .hero__raita-label {
-    font-size: 10.5px;
-    padding: 3px 10px;
+    font-size: 9.5px;
+    padding: 3px 9px;
     white-space: nowrap;
+    transform: rotate(-2deg);
   }
 
   /* 誰に頼む？吹き出し：1行→自動改行可に、サイズ調整 */
