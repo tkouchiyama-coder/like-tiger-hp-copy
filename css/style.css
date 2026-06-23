@@ -2878,9 +2878,20 @@ body::after {
   .activity-photo img { min-height: 220px; }
 
   .partners__logo {
-    width: clamp(170px, 56vw, 220px);
-    height: 104px;
-    padding: 18px 26px;
+    width: clamp(95px, 30vw, 130px);
+    height: 80px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.10);
+  }
+  .partners__logo img {
+    max-height: 50px;
+  }
+  .partners__track {
+    gap: 14px;
+  }
+  .partners__marquee {
+    gap: 14px;
   }
 }
 
