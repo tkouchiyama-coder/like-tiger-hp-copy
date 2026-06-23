@@ -212,7 +212,11 @@
 
 /* ---------- レスポンシブ ---------- */
 @media (max-width: 768px) {
-  .ph-hero { padding: 120px 6vw 90px; }
+  /* スマホ：ロゴ＋縦5タブの分を確保（260px）して見出しと被らないように */
+  .ph-hero { padding: 260px 6vw 70px; }
+  .ph-hero__title { font-size: clamp(34px, 8vw, 56px); }
+  .ph-hero__sub { font-size: clamp(15px, 4vw, 20px); }
+  .ph-hero__copy { font-size: clamp(13px, 3.4vw, 16px); line-height: 1.85; }
   .ph-hero__copy br { display: none; }
   .ph-hero__route, .ph-hero__jet { display: none; }
   .ph-episodes__grid,
