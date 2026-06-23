@@ -402,6 +402,7 @@ body::after {
   padding: 5px 18px;
   transform: rotate(-2deg);
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
 }
 
 /* ============================================================
@@ -776,6 +777,7 @@ body::after {
   padding: 5px 14px;
   transform: rotate(-2deg);
   position: relative;
+  white-space: nowrap;
   z-index: 4;
 }
 
@@ -2430,8 +2432,8 @@ body::after {
 
 @media (max-width: 768px) {
   .lp-home .hero--poster {
-    min-height: 680px;
-    padding: 208px 6vw 64px;
+    min-height: 760px;
+    padding: 280px 6vw 80px;
     display: flex;
     align-items: center;
   }
@@ -2451,12 +2453,23 @@ body::after {
     padding: 6px 8px;
   }
 
+  /* ナビ：ロゴ下に縦並びで5タブ（左寄せ） */
   .lp-home .site-nav {
-    top: 62px;
-    left: 12px;
-    right: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
+    top: 84px;
+    left: 16px;
+    right: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 7px;
+  }
+  .lp-home .site-nav a {
+    font-size: 11.5px;
+    padding: 6px 14px;
+    width: auto;
+    min-width: 130px;
+    text-align: center;
   }
 
   .lp-home .hero__inner {
@@ -2894,7 +2907,8 @@ body::after {
     transform: none !important;
     white-space: nowrap;
     text-align: center;
-    font-size: clamp(34px, 9.5vw, 64px);
+    font-size: clamp(22px, 7.6vw, 56px);
+    letter-spacing: -0.01em;
     line-height: 1.05;
     text-shadow:
       3px 3px 0 #FFED00,
@@ -2920,6 +2934,11 @@ body::after {
     width: clamp(96px, 26vw, 140px);
     margin: 0;
     z-index: 4;
+  }
+  .lp-home .hero__raita-label {
+    font-size: 10.5px;
+    padding: 3px 10px;
+    white-space: nowrap;
   }
 
   /* 誰に頼む？吹き出し：1行→自動改行可に、サイズ調整 */
