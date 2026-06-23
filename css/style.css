@@ -238,18 +238,20 @@ body::after {
   z-index: 10;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  flex-wrap: nowrap;
 }
 .site-nav a {
   display: inline-block;
   background: #FFED00;
   border: 1.5px solid var(--black);
   color: var(--black);
-  font-size: 12.5px;
+  font-size: clamp(11px, 1.05vw, 13px);
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
   text-decoration: none;
-  padding: 8px 18px;
+  padding: 8px 14px;
   border-radius: 999px;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -378,9 +380,9 @@ body::after {
 .hero__raita {
   position: absolute;
   right: 3vw;
-  bottom: 8%;
-  z-index: 2;
-  width: clamp(140px, 18vw, 240px);
+  bottom: 4%;
+  z-index: 3;
+  width: clamp(150px, 19vw, 260px);
   text-align: center;
 }
 .hero__raita img {
@@ -1498,15 +1500,16 @@ body::after {
   backdrop-filter: none;
 }
 
-/* Sales is Journey: 地球儀に少しかかるくらいの左位置 */
+/* Sales is Journey: 中央でインパクト重視 */
 .lp-home .hero__title {
-  transform: translateX(calc(-1 * clamp(60px, 11vw, 220px)));
+  transform: none;
 }
 
-/* 3行コピー: タイトルから少し右へ戻す */
+/* 3行コピー: タイトル下に中央配置 */
 .lp-home .hero__copy {
-  margin-left: clamp(30px, 8vw, 140px);
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .lp-home .hero__company-label,
@@ -1537,15 +1540,16 @@ body::after {
   transform: none;
   margin: 0;
   font-style: normal;
-  font-size: clamp(46px, 8vw, 132px);
+  font-size: clamp(52px, 9.5vw, 152px);
   line-height: 1;
-  letter-spacing: 0;
+  letter-spacing: -0.005em;
   color: #000000;
   text-transform: none;
   white-space: nowrap;
+  text-align: center;
   text-shadow:
-    4px 4px 0 rgba(0, 0, 0, 0.10),
-    7px 7px 0 rgba(255, 237, 0, 0.55);
+    5px 5px 0 #FFED00,
+    9px 9px 0 rgba(0, 0, 0, 0.18);
 }
 
 .lp-home .hero__title span {
@@ -2867,8 +2871,14 @@ body::after {
    モバイル最適化（768px以下）— ごちゃつき対策
 ============================================================ */
 @media (max-width: 768px) {
-  /* ヒーロー：地球儀非表示／タイトル左寄せ解除／コピー＆らい太を読みやすく */
-  .lp-home .hero__globe { display: none; }
+  /* ヒーロー：地球儀は水色のまま左上に小さく表示 */
+  .lp-home .hero__globe {
+    display: block;
+    top: 8%;
+    left: -10%;
+    width: 56vw;
+    opacity: 0.4;
+  }
 
   .lp-home .hero__text {
     background: transparent;
@@ -2876,34 +2886,40 @@ body::after {
     box-shadow: none;
     padding: 24px 14px;
     transform: none;
+    position: relative;
+    z-index: 3;
   }
 
   .lp-home .hero__title {
     transform: none !important;
-    white-space: normal;
+    white-space: nowrap;
     text-align: center;
-    font-size: clamp(38px, 11vw, 72px);
+    font-size: clamp(34px, 9.5vw, 64px);
     line-height: 1.05;
-    text-shadow: 3px 3px 0 rgba(255, 237, 0, 0.85);
+    text-shadow:
+      3px 3px 0 #FFED00,
+      5px 5px 0 rgba(0, 0, 0, 0.18);
   }
 
   .lp-home .hero__copy {
     margin-left: 0 !important;
     text-align: center;
-    font-size: clamp(15px, 4vw, 19px);
+    font-size: clamp(14px, 3.8vw, 18px);
     line-height: 1.85;
     letter-spacing: 0.02em;
     text-shadow: none;
   }
 
+  /* らい太：右下固定（スマホでも） */
   .lp-home .hero__raita {
-    position: relative;
-    right: auto;
-    bottom: auto;
+    position: absolute;
+    right: 4vw;
+    bottom: 5%;
     top: auto;
     transform: none;
-    width: 130px;
-    margin: 24px auto 0;
+    width: clamp(96px, 26vw, 140px);
+    margin: 0;
+    z-index: 4;
   }
 
   /* 誰に頼む？吹き出し：1行→自動改行可に、サイズ調整 */
