@@ -2443,33 +2443,37 @@ body::after {
     opacity: 0.28;
   }
 
+  .lp-home .hero--poster {
+    background: #FFFFFF;
+  }
   .lp-home .hero--poster::before {
     background:
-      radial-gradient(ellipse 95% 62% at 50% 54%, rgba(255, 237, 0, 0.94), rgba(255, 237, 0, 0.78) 48%, rgba(255, 255, 255, 0.68) 82%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.94), transparent 32%);
+      radial-gradient(ellipse 32% 22% at 12% 18%, rgba(255, 237, 0, 0.18), transparent 70%),
+      radial-gradient(ellipse 28% 20% at 88% 82%, rgba(255, 237, 0, 0.14), transparent 70%);
   }
 
   .lp-home .hero__brand {
     padding: 6px 8px;
   }
 
-  /* ナビ：ロゴ下に縦並びで5タブ（左寄せ） */
+  /* ナビ：ロゴ下に縦並びで5タブ（コンパクト） */
   .lp-home .site-nav {
-    top: 84px;
+    top: 76px;
     left: 16px;
     right: auto;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    gap: 7px;
+    gap: 5px;
   }
   .lp-home .site-nav a {
-    font-size: 11.5px;
-    padding: 6px 14px;
-    width: auto;
-    min-width: 130px;
+    font-size: 9.5px;
+    padding: 4px 11px;
+    width: 112px;
     text-align: center;
+    letter-spacing: 0.04em;
+    box-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.14);
   }
 
   .lp-home .hero__inner {
@@ -2884,11 +2888,12 @@ body::after {
    モバイル最適化（768px以下）— ごちゃつき対策
 ============================================================ */
 @media (max-width: 768px) {
-  /* ヒーロー：地球儀は水色のまま左上に小さく表示 */
+  /* ヒーロー：地球儀は水色のまま右側に表示 */
   .lp-home .hero__globe {
     display: block;
-    top: 8%;
-    left: -10%;
+    top: 10%;
+    left: auto;
+    right: -12%;
     width: 56vw;
     opacity: 0.4;
   }
