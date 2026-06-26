@@ -268,6 +268,27 @@ Googleドライブ共有フォルダ「HP関係」（ID: `1uO_YeD8JPld0NwgCCecEO
 - 相手の編集方法：GitHub直接／ローカルclone／ChatGPTのCodexで `shumpei1118/like-tiger-hp-copy` を選択、のいずれも可
 - 招待状況の確認コマンド：`gh api repos/shumpei1118/like-tiger-hp-copy/invitations`（空＝承認済み）／`gh api repos/shumpei1118/like-tiger-hp-copy/collaborators`
 
+## 作業ログ（2026-06-26：相手側コピーの改修を本番へ統合）
+
+### 完了したこと
+- **相手側リポジトリ `tkouchiyama-coder/like-tiger-hp-copy` の改修を本番へ取り込み**
+  - 経緯：相手（河内山社長サイドのcoder）は共有用 `shumpei1118/like-tiger-hp-copy` ではなく、**自分のアカウントに別の非公開リポジトリ** `tkouchiyama-coder/like-tiger-hp-copy` を作って作業していた
+  - そこから shumpei1118 宛に **collaborator招待（write）** が届いていたので `gh api -X PATCH user/repository_invitations/<id>` で承認 → アクセス可能化
+  - 一時リモート `theirs` を追加して fetch → `git merge theirs/main`（**衝突ゼロ**で統合）→ 一時リモート削除
+  - 分岐点は `0b1658b`。当方の差分は `f98847a`（CLAUDE.md更新のみ＝コード無変更）だったため、3wayマージで **CLAUDE.md は当方の最新版を自動保持**
+- **取り込んだ主な改修**：
+  - 取引先・パートナー企業ロゴ **9社分の実画像**追加（`images/partner-chikuyokai/comgrast/denrai/elevator-com/g-line/kouwa/likelab/shd/wakana.*`）
+  - **カレー畑の本物写真**に差し替え（31KB→511KB／`business.html` の活動風景で使用。index側の `activity-scenes` は相手が削除済み）
+  - スマホ表示の全面最適化（768/480px・ナビ縦5タブ・らい太/コピーのサイズ調整）
+  - 取扱いセクションの構成・文字サイズ調整、サービス一覧に項目追加（インフラ/SNS運用/PRキャスティング）
+  - index/business/philosophy/countries の各種調整、`images/tiger-pattern.svg` 追加
+- マージコミット `593ed8d` → `git push origin main` → `vercel deploy --prod --yes` で **本番反映済み**（partner-wakana等が本番HTMLに出ることを確認）
+
+### 重要な設定・メモ
+- **3系統目のリポジトリが判明**：相手は `tkouchiyama-coder/like-tiger-hp-copy`（相手所有・非公開・shumpei1118をwrite collaboratorに招待）で作業している。今後あちらの更新を取り込む時は、このリポを一時リモート追加→`git merge theirs/main` でOK
+- 取り込み手順（再現用）：`git remote add theirs https://github.com/tkouchiyama-coder/like-tiger-hp-copy.git && git fetch theirs && git merge theirs/main`（衝突したらCLAUDE.mdは当方優先）→ push → `vercel deploy --prod --yes`
+- ヘッドレスChromeのスクショは `vh` が窓高さになり巨大化するため、検証時は override CSSで `.intro-gate{display:none}` ＋ `min-height:0/height:auto` を当てて撮ると正しく見える
+
 ## 元情報
 - ヒヤリング内容：Googleドキュメント「ホームページ作成のためのヒアリングリスト」
   https://docs.google.com/document/d/1Vz5BjVnvkWMzCWkiZ2WgONMwuMAOxrCmEod93zx8DRQ/
