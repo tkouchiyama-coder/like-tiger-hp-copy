@@ -289,6 +289,29 @@ Googleドライブ共有フォルダ「HP関係」（ID: `1uO_YeD8JPld0NwgCCecEO
 - 取り込み手順（再現用）：`git remote add theirs https://github.com/tkouchiyama-coder/like-tiger-hp-copy.git && git fetch theirs && git merge theirs/main`（衝突したらCLAUDE.mdは当方優先）→ push → `vercel deploy --prod --yes`
 - ヘッドレスChromeのスクショは `vh` が窓高さになり巨大化するため、検証時は override CSSで `.intro-gate{display:none}` ＋ `min-height:0/height:auto` を当てて撮ると正しく見える
 
+## 作業ログ（2026-06-27：独自ドメイン liketiger39.com を接続）
+
+### 完了したこと
+- **独自ドメイン `liketiger39.com` を本番サイト（Vercel）に接続・公開**
+  - ドメインはエックスサーバーで登録・DNS管理（ネームサーバー ns1〜5.xserver.jp）。**ドメイン移管はせず、DNSレコードだけVercelに向けた**（最も安全な方式）
+  - Vercel側：`vercel domains add liketiger39.com` ＋ `vercel domains add www.liketiger39.com`（リンク済みプロジェクト like-tiger-hp に単一引数で追加。「403 you don't have access」表示は外部所有ドメインなので正常）
+  - エックスサーバー側（サーバーパネル→DNSレコード設定）で2レコードのみ変更：
+    - `liketiger39.com` A：85.131.213.157 → **76.76.21.21**（Vercel apex用）
+    - `www.liketiger39.com`：A → **CNAME `cname.vercel-dns.com`**（種別をA→CNAMEに変更）
+  - **メールは無傷**：MX＝`ASPMX.L.GOOGLE.com`（＝会社メールはGoogle Workspace運用）、SPF/DKIM(TXT)、NS には一切触れていない。`*.liketiger39.com`(A) も変更せず残置
+  - DNS反映は即時（ns1.xserver.jp/8.8.8.8とも新値）。VercelのSSL自動発行を待ち（約10数分）→ `https://liketiger39.com` HTTP/2 200・`server: Vercel`・http→https 308リダイレクトを確認。`www`も200
+  - 公開確認：`<title>株式会社LikeTiger｜Sales is Journey…</title>` が独自ドメインで表示される
+
+### 重要な設定・メモ
+- **本番URLが2つに**：旧 https://like-tiger-hp.vercel.app/ ＋ 新 **https://liketiger39.com**（どちらも同じVercelプロジェクト like-tiger-hp を表示）。今後の再デプロイは従来どおり `vercel deploy --prod --yes` でOK（両URLに反映）
+- エックスサーバーのログイン：Xserverアカウント（メール `t.liketiger@gmail.com`）。サーバーID xs744110 / スタンダード / sv16831。DNS編集は「サーバー管理（サーバーパネル）→ DNSレコード設定 → liketiger39.com 選択 → DNSレコード一覧」
+- Vercelの標準DNS値（再設定時の参照）：apex は A `76.76.21.21`、サブドメインは CNAME `cname.vercel-dns.com`
+- ⚠️ パスワード類はファイル/メモリに保存していない（チャット内のみ。利用後の変更を推奨済み）
+
+### 任意の今後対応（必須ではない）
+- www を apex へ301/308リダイレクト統一（現状は www も 200 で実体表示。SEO上の重複対策をするなら Vercel のドメイン設定で primary を liketiger39.com にしてリダイレクト化）
+- （継続）お問い合わせフォームの送信機能（Formspree等→ t.kouchiyama@liketiger39.com）
+
 ## 元情報
 - ヒヤリング内容：Googleドキュメント「ホームページ作成のためのヒアリングリスト」
   https://docs.google.com/document/d/1Vz5BjVnvkWMzCWkiZ2WgONMwuMAOxrCmEod93zx8DRQ/
