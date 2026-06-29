@@ -2879,6 +2879,24 @@ body::after {
   max-height: 56px;
   object-fit: contain;
 }
+/* 正方形・縦長のロゴ（AIZACなど）はカード内で大きく見せる */
+.partners__logo img.is-tall {
+  max-height: 92px;
+  max-width: 110%;
+  transform: scale(1.08);
+}
+/* クリック可能なロゴ（外部リンク付き） */
+.partners__logo--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.partners__logo--link:hover {
+  transform: translateY(-3px);
+  box-shadow: 7px 8px 0 rgba(0, 0, 0, 0.18);
+  background: #fffef0;
+}
 /* 動きを減らす設定の利用者には流さない（アクセシビリティ） */
 @media (prefers-reduced-motion: reduce) {
   .partners__track--left,
@@ -2903,6 +2921,10 @@ body::after {
   }
   .partners__logo img {
     max-height: 50px;
+  }
+  .partners__logo img.is-tall {
+    max-height: 76px;
+    transform: scale(1.08);
   }
   .partners__track {
     gap: 14px;
