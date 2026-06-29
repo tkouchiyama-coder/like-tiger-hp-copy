@@ -312,6 +312,26 @@ Googleドライブ共有フォルダ「HP関係」（ID: `1uO_YeD8JPld0NwgCCecEO
 - www を apex へ301/308リダイレクト統一（現状は www も 200 で実体表示。SEO上の重複対策をするなら Vercel のドメイン設定で primary を liketiger39.com にしてリダイレクト化）
 - （継続）お問い合わせフォームの送信機能（Formspree等→ t.kouchiyama@liketiger39.com）
 
+## 作業ログ（2026-06-29：河内山さんの編集を自動で本番反映する仕組みを構築）
+
+### 目的
+- 「河内山さんが編集したら実際のHP（liketiger39.com）に自動で載る」状態にしたい、という要望に対応。**反映方式は「即・自動反映（ノーチェック）」をユーザーが選択**（承認制ではなく手間ゼロ優先）。
+
+### 完了したこと
+1. **河内山リポの未反映改修6件を本番へ統合**：`tkouchiyama-coder/like-tiger-hp-copy` を一時リモート追加→`git merge`（衝突ゼロ）→push。取り込んだ内容＝AIZAC（上段）/ハルク財団（下段）を取引先に追加・ロゴ化、取引先ロゴ9社をタップで各公式サイトへ遷移（リンク化）。`images/partner-aizac.png`・`images/partner-hulkzaidan.png` 追加。本番反映確認済み（curlで `partner-aizac` を確認）
+2. **VercelとGitHubを自動連携（最重要）**：これまで連携【なし】＝手動 `vercel deploy` した時だけ本番更新、だったのを、`vercel git connect https://github.com/shumpei1118/like-tiger-hp.git --yes` で連携【あり】に。**本番ブランチ=main**。→ 今後は `shumpei1118/like-tiger-hp` の main にpushされると**約30秒で自動デプロイ→本番反映**（手動デプロイ不要に）
+3. **河内山さん（GitHubユーザー名 tkouchiyama-coder）を本番リポ `shumpei1118/like-tiger-hp` にwrite権限で招待**：`gh api -X PUT repos/shumpei1118/like-tiger-hp/collaborators/tkouchiyama-coder -f permission=push`。**2026-06-29時点で「承認待ち」**（河内山さんがGitHub通知/メールで承認すれば編集者として有効化）
+
+### 仕組み（完成形）
+- 河内山さんが本番リポ `shumpei1118/like-tiger-hp` を編集（GitHub直接/Codex/clone どれでも）→ main にpush/マージ → **Vercelが自動でビルド＆本番公開** → liketiger39.com に反映。**舜平さんの手作業（取り込み・手動デプロイ）が不要に**
+- 舜平さんは引き続きオーナー/admin（このMacフォルダが大元・全権限保持）。河内山さんはwrite（編集可・削除や設定変更は不可）
+
+### 重要な設定・メモ
+- **今後の編集先は本番リポ1本に集約**：河内山さんには「今後は `shumpei1118/like-tiger-hp` を編集してください」と案内（旧コピー `tkouchiyama-coder/like-tiger-hp-copy`・`shumpei1118/like-tiger-hp-copy` は卒業＝行き来の手動マージが不要に）
+- 連携の取り消し方：`vercel git disconnect`（自動デプロイを止めたい時）／河内山さんの権限取り消し：GitHubのリポ Settings→Collaborators で削除
+- 招待状況の確認：`gh api repos/shumpei1118/like-tiger-hp/invitations`（空＝承認済み）／編集者一覧：`gh api repos/shumpei1118/like-tiger-hp/collaborators`
+- ⚠️ ノーチェックで本番に出る方式のため、河内山さんのミスもそのまま公開される（ユーザー了承済み）。承認制に切り替えたくなったらブランチ保護＋PR運用を追加で対応可
+
 ## 元情報
 - ヒヤリング内容：Googleドキュメント「ホームページ作成のためのヒアリングリスト」
   https://docs.google.com/document/d/1Vz5BjVnvkWMzCWkiZ2WgONMwuMAOxrCmEod93zx8DRQ/
