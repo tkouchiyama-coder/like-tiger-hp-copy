@@ -320,9 +320,9 @@ Googleドライブ共有フォルダ「HP関係」（ID: `1uO_YeD8JPld0NwgCCecEO
 ### 完了したこと
 1. **河内山リポの未反映改修6件を本番へ統合**：`tkouchiyama-coder/like-tiger-hp-copy` を一時リモート追加→`git merge`（衝突ゼロ）→push。取り込んだ内容＝AIZAC（上段）/ハルク財団（下段）を取引先に追加・ロゴ化、取引先ロゴ9社をタップで各公式サイトへ遷移（リンク化）。`images/partner-aizac.png`・`images/partner-hulkzaidan.png` 追加。本番反映確認済み（curlで `partner-aizac` を確認）
 2. **VercelとGitHubを自動連携（最重要）**：これまで連携【なし】＝手動 `vercel deploy` した時だけ本番更新、だったのを、`vercel git connect https://github.com/shumpei1118/like-tiger-hp.git --yes` で連携【あり】に。**本番ブランチ=main**。→ 今後は `shumpei1118/like-tiger-hp` の main にpushされると**約30秒で自動デプロイ→本番反映**（手動デプロイ不要に）
-3. **河内山さん（GitHubユーザー名 tkouchiyama-coder）を本番リポ `shumpei1118/like-tiger-hp` にwrite権限で招待**：`gh api -X PUT repos/shumpei1118/like-tiger-hp/collaborators/tkouchiyama-coder -f permission=push`。**2026-06-29時点で「承認待ち」**（河内山さんがGitHub通知/メールで承認すれば編集者として有効化）
+3. **河内山さん（GitHubユーザー名 tkouchiyama-coder）を本番リポ `shumpei1118/like-tiger-hp` にwrite権限で招待**：`gh api -X PUT repos/shumpei1118/like-tiger-hp/collaborators/tkouchiyama-coder -f permission=push`。**2026-06-29 河内山さんが招待を承認 → 編集者として有効化完了**（`gh api repos/shumpei1118/like-tiger-hp/invitations` が空＝承認済み、collaborators に `tkouchiyama-coder`=write で登録を確認）
 
-### 仕組み（完成形）
+### 仕組み（完成形）★2026-06-29 招待承認をもって全工程フル稼働
 - 河内山さんが本番リポ `shumpei1118/like-tiger-hp` を編集（GitHub直接/Codex/clone どれでも）→ main にpush/マージ → **Vercelが自動でビルド＆本番公開** → liketiger39.com に反映。**舜平さんの手作業（取り込み・手動デプロイ）が不要に**
 - 舜平さんは引き続きオーナー/admin（このMacフォルダが大元・全権限保持）。河内山さんはwrite（編集可・削除や設定変更は不可）
 
