@@ -2885,13 +2885,13 @@ body::after {
   max-width: 110%;
   transform: scale(1.08);
 }
-/* 横長ロゴ（AIZAC Holdings 等）はカード幅を広げて中身を大きく */
+/* 横長ロゴ（AIZAC Holdings・ハルク財団 等）はカード幅を広げて中身を大きく */
 .partners__logo--wide {
   width: clamp(220px, 24vw, 300px);
-  padding: 14px 18px;
+  padding: 10px 14px;
 }
 .partners__logo img.is-wide {
-  max-height: 70px;
+  max-height: 80px;
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -2938,11 +2938,11 @@ body::after {
     transform: scale(1.08);
   }
   .partners__logo--wide {
-    width: clamp(150px, 42vw, 200px);
-    padding: 8px 10px;
+    width: clamp(160px, 46vw, 210px);
+    padding: 6px 10px;
   }
   .partners__logo img.is-wide {
-    max-height: 56px;
+    max-height: 64px;
   }
   .partners__track {
     gap: 14px;
