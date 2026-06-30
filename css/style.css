@@ -2885,6 +2885,17 @@ body::after {
   max-width: 110%;
   transform: scale(1.08);
 }
+/* カード内の余白をなくして画像を最大まで拡大（横長ロゴをカード幅いっぱいに） */
+.partners__logo:has(img.is-fill) {
+  padding: 4px 6px;
+}
+.partners__logo img.is-fill {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  object-fit: contain;
+}
 /* 横長ロゴ（AIZAC Holdings・ハルク財団 等）はカード幅を広げて中身を大きく */
 .partners__logo--wide {
   width: clamp(220px, 24vw, 300px);
@@ -2943,6 +2954,12 @@ body::after {
   }
   .partners__logo img.is-wide {
     max-height: 64px;
+  }
+  .partners__logo:has(img.is-fill) {
+    padding: 3px 5px;
+  }
+  .partners__logo img.is-fill {
+    max-height: none;
   }
   .partners__track {
     gap: 14px;
