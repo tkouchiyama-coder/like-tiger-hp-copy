@@ -2879,11 +2879,22 @@ body::after {
   max-height: 56px;
   object-fit: contain;
 }
-/* 正方形・縦長のロゴ（AIZACなど）はカード内で大きく見せる */
+/* 正方形・縦長のロゴはカード内で大きく見せる */
 .partners__logo img.is-tall {
   max-height: 92px;
   max-width: 110%;
   transform: scale(1.08);
+}
+/* 横長ロゴ（AIZAC Holdings 等）はカード幅を広げて中身を大きく */
+.partners__logo--wide {
+  width: clamp(220px, 24vw, 300px);
+  padding: 14px 18px;
+}
+.partners__logo img.is-wide {
+  max-height: 70px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 /* クリック可能なロゴ（外部リンク付き） */
 .partners__logo--link {
@@ -2925,6 +2936,13 @@ body::after {
   .partners__logo img.is-tall {
     max-height: 76px;
     transform: scale(1.08);
+  }
+  .partners__logo--wide {
+    width: clamp(150px, 42vw, 200px);
+    padding: 8px 10px;
+  }
+  .partners__logo img.is-wide {
+    max-height: 56px;
   }
   .partners__track {
     gap: 14px;
