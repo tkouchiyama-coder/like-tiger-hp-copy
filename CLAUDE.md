@@ -332,6 +332,25 @@ Googleドライブ共有フォルダ「HP関係」（ID: `1uO_YeD8JPld0NwgCCecEO
 - 招待状況の確認：`gh api repos/shumpei1118/like-tiger-hp/invitations`（空＝承認済み）／編集者一覧：`gh api repos/shumpei1118/like-tiger-hp/collaborators`
 - ⚠️ ノーチェックで本番に出る方式のため、河内山さんのミスもそのまま公開される（ユーザー了承済み）。承認制に切り替えたくなったらブランチ保護＋PR運用を追加で対応可
 
+## 作業ログ（2026-07-05：本番反映が止まっていた原因の特定と復旧）
+
+### 事象
+- 河内山さん側から「GitHubは最新なのに本番（liketiger39.com）が古いまま」との連絡（スクショ2枚）
+- 調査の結果、**Vercel⇔GitHub自動連携自体は正常に動作していた**が、6/30以降のデプロイが全件 **BLOCKED** になっていた
+
+### 原因（重要）
+- Vercelのブロック理由：`TEAM_ACCESS_REQUIRED`＝「Git author **t.kouchiyama@liketiger39.com** must have access to the team」
+- **Vercel無料（Hobby）プランでは、Vercelチームのメンバーでない人がauthorのコミットは本番デプロイをブロックされる**仕様
+- 河内山さんはGitHubリポにはwrite権限があるが、舜平さんのVercelにはメンバー登録できない（無料プランはメンバー追加不可）→ 河内山さん名義のコミット5件（c5d905e〜aa9ca3c）が全部ブロック
+- CLIからの手動デプロイ（`vercel deploy --prod`）も「HEADコミットの作者＝河内山さん」だと同様にブロックされる
+
+### 復旧方法（今回実施）
+- 舜平さん名義のコミット（このCLAUDE.md更新）をpush → 「作者＝舜平さん（オーナー）」のデプロイが走り、河内山さんの修正も含む最新ツリーが本番反映される
+
+### 恒久対応（決定）
+- ユーザー決定：「**全ての権限を河内山さんへ渡す**」（毎回の取り込み対応が不要になるよう完全移管）
+- 移管プラン：①GitHubリポ所有権を tkouchiyama-coder へ移転 ②河内山さん自身のVercelアカウントでリポを接続 ③ドメイン liketiger39.com を彼のVercelプロジェクトへ付け替え（Xserverは元々LikeTiger側アカウントのためDNS変更不要見込み）
+
 ## 元情報
 - ヒヤリング内容：Googleドキュメント「ホームページ作成のためのヒアリングリスト」
   https://docs.google.com/document/d/1Vz5BjVnvkWMzCWkiZ2WgONMwuMAOxrCmEod93zx8DRQ/
