@@ -323,6 +323,7 @@ Googleドライブ共有フォルダ「HP関係」（ID: `1uO_YeD8JPld0NwgCCecEO
 3. **河内山さん（GitHubユーザー名 tkouchiyama-coder）を本番リポ `shumpei1118/like-tiger-hp` にwrite権限で招待**：`gh api -X PUT repos/shumpei1118/like-tiger-hp/collaborators/tkouchiyama-coder -f permission=push`。**2026-06-29 河内山さんが招待を承認 → 編集者として有効化完了**（`gh api repos/shumpei1118/like-tiger-hp/invitations` が空＝承認済み、collaborators に `tkouchiyama-coder`=write で登録を確認）
 
 ### 仕組み（完成形）★2026-06-29 招待承認をもって全工程フル稼働
+> ⚠️ **2026-07-05 追記**：この仕組みは実際には**舜平さん名義のコミットしか本番反映されなかった**（Vercel無料プランの仕様で河内山さん名義のコミットはBLOCKED）。詳細と恒久対応（完全移管）は「作業ログ（2026-07-05）」参照。
 - 河内山さんが本番リポ `shumpei1118/like-tiger-hp` を編集（GitHub直接/Codex/clone どれでも）→ main にpush/マージ → **Vercelが自動でビルド＆本番公開** → liketiger39.com に反映。**舜平さんの手作業（取り込み・手動デプロイ）が不要に**
 - 舜平さんは引き続きオーナー/admin（このMacフォルダが大元・全権限保持）。河内山さんはwrite（編集可・削除や設定変更は不可）
 
@@ -332,24 +333,34 @@ Googleドライブ共有フォルダ「HP関係」（ID: `1uO_YeD8JPld0NwgCCecEO
 - 招待状況の確認：`gh api repos/shumpei1118/like-tiger-hp/invitations`（空＝承認済み）／編集者一覧：`gh api repos/shumpei1118/like-tiger-hp/collaborators`
 - ⚠️ ノーチェックで本番に出る方式のため、河内山さんのミスもそのまま公開される（ユーザー了承済み）。承認制に切り替えたくなったらブランチ保護＋PR運用を追加で対応可
 
-## 作業ログ（2026-07-05：本番反映が止まっていた原因の特定と復旧）
+## 作業ログ（2026-07-05：本番反映停止の原因特定・復旧＋河内山さんへの完全移管を開始）
 
-### 事象
-- 河内山さん側から「GitHubは最新なのに本番（liketiger39.com）が古いまま」との連絡（スクショ2枚）
-- 調査の結果、**Vercel⇔GitHub自動連携自体は正常に動作していた**が、6/30以降のデプロイが全件 **BLOCKED** になっていた
+### 完了したこと
+- **本番が古いまま問題の原因を特定**：河内山さん側から「GitHubは最新なのに本番（liketiger39.com）が20分以上古いまま」とスクショ連絡 → 調査の結果、Vercel⇔GitHub自動連携は正常動作していたが、**6/30以降のデプロイが全件 BLOCKED** になっていた
+  - ブロック理由：`TEAM_ACCESS_REQUIRED`＝「Git author **t.kouchiyama@liketiger39.com** must have access to the team」
+  - **Vercel無料（Hobby）プランでは、Vercelチームのメンバーでない人がauthorのコミットは本番デプロイをブロックされる**仕様。河内山さんはGitHubにはwrite権限があるが舜平さんのVercelメンバーではない（無料プランはメンバー追加不可）→ 河内山さん名義のコミット5件（c5d905e〜aa9ca3c）が全部ブロックされていた
+  - CLI手動デプロイ（`vercel deploy --prod`）も「HEADコミット作者＝河内山さん」だと同様にブロックされることを確認
+- **本番を復旧**：舜平さん名義のコミット（CLAUDE.md更新 `e47887c`）をpush → 作者＝オーナーなのでデプロイが通り（READY）、**河内山さんの修正5件（AIZAC/ハルク財団ロゴのjpg版・is-fill拡大表示など）を含む最新版が liketiger39.com に反映済み**（curlで `partner-aizac.jpg?v=2`・`is-fill` を確認）
+- **完全移管を開始（ユーザー決定：全権を河内山さんへ渡す）**：`gh api -X POST repos/shumpei1118/like-tiger-hp/transfer -f new_owner=tkouchiyama-coder` で**GitHubリポ所有権の移転申請を送信済み**（河内山さんの承認待ち・24時間期限、期限切れなら再申請可）
+- 河内山さんに送るLINE文面（①移転承認 ②自分のVercelでImport＆Deploy ③完了連絡→ドメイン付け替え）を作成してユーザーに提供
 
-### 原因（重要）
-- Vercelのブロック理由：`TEAM_ACCESS_REQUIRED`＝「Git author **t.kouchiyama@liketiger39.com** must have access to the team」
-- **Vercel無料（Hobby）プランでは、Vercelチームのメンバーでない人がauthorのコミットは本番デプロイをブロックされる**仕様
-- 河内山さんはGitHubリポにはwrite権限があるが、舜平さんのVercelにはメンバー登録できない（無料プランはメンバー追加不可）→ 河内山さん名義のコミット5件（c5d905e〜aa9ca3c）が全部ブロック
-- CLIからの手動デプロイ（`vercel deploy --prod`）も「HEADコミットの作者＝河内山さん」だと同様にブロックされる
+### 未完了・次回やること
+- **ドメイン付け替え（移管の最終ステップ）**：河内山さんから「①移転承認・②Vercel接続完了」の連絡が来たら実行
+  1. 舜平さん側Vercelから `vercel domains rm liketiger39.com`／`www.liketiger39.com` でドメインを外す
+  2. 河内山さん側Vercelプロジェクトの Settings→Domains で liketiger39.com と www.liketiger39.com を追加してもらう
+  3. XserverのDNSはVercel汎用値（A 76.76.21.21／CNAME cname.vercel-dns.com）のため**変更不要見込み**。もしVercelがTXT検証を求めたらXserverのDNSレコード設定にTXTを1行追加（XserverアカウントはLikeTiger側 t.liketiger@gmail.com）
+  4. 付け替えの間、数分〜十数分サイトが見えなくなる可能性あり（②完了後に一気にやる）
+- 移管完了後の任意整理：舜平さん側Vercelプロジェクト like-tiger-hp の削除、旧共有リポ shumpei1118/like-tiger-hp-copy の削除
 
-### 復旧方法（今回実施）
-- 舜平さん名義のコミット（このCLAUDE.md更新）をpush → 「作者＝舜平さん（オーナー）」のデプロイが走り、河内山さんの修正も含む最新ツリーが本番反映される
+### 重要な設定・メモ
+- **移管後の体制**：リポ＝tkouchiyama-coder/like-tiger-hp（GitHubが旧URLから自動リダイレクト）・Vercel＝河内山さんアカウント・ドメインDNS＝Xserver（元々LikeTiger側所有）。**舜平さんは完全ノータッチに**。舜平さんが再び編集したくなったら河内山さんからcollaborator招待してもらう
+- ブロックされたデプロイの調査方法（再現用）：Vercel API `v6/deployments?projectId=prj_1A4e5uEpd30GnEwO9ArdfVdthL8K` で一覧（source=git/cli と state を確認）→ `v13/deployments/<dpl_id>` の `readyStateReason` にブロック理由が出る。トークンは `~/Library/Application Support/com.vercel.cli/auth.json`
+- 2026-06-29 に構築した「自動反映の仕組み」は、**舜平さん名義のコミットのみ有効**だった（河内山さん名義はブロック）── 完全移管で解消する
 
-### 恒久対応（決定）
-- ユーザー決定：「**全ての権限を河内山さんへ渡す**」（毎回の取り込み対応が不要になるよう完全移管）
-- 移管プラン：①GitHubリポ所有権を tkouchiyama-coder へ移転 ②河内山さん自身のVercelアカウントでリポを接続 ③ドメイン liketiger39.com を彼のVercelプロジェクトへ付け替え（Xserverは元々LikeTiger側アカウントのためDNS変更不要見込み）
+## 作業ログ（2026-07-05 ②：/summary 実行）
+
+### 完了したこと
+- 本セッションの作業記録をCLAUDE.mdに整理・保存（上記2026-07-05ログを完全版に更新）
 
 ## 元情報
 - ヒヤリング内容：Googleドキュメント「ホームページ作成のためのヒアリングリスト」
