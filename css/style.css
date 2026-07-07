@@ -841,12 +841,20 @@ body::after {
 }
 .photo--profile-main {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 88%;
-  height: 64%;
+  top: -4%;
+  left: -2%;
+  width: 104%;
+  height: 82%;
   transform: rotate(-3deg);
   z-index: 2;
+  background: none;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+.photo--profile-main[data-photo$=".png"] {
+  background-size: contain !important;
+  background-repeat: no-repeat;
 }
 .photo--profile-sub1 {
   position: absolute;
