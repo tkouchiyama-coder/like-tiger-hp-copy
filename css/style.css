@@ -834,45 +834,34 @@ body::after {
   z-index: 2;
 }
 
-/* 左：写真コラージュ */
+/* 代表挨拶：中央に配置したクリーンなポートレート */
 .profile__visual {
   position: relative;
-  height: clamp(420px, 46vw, 600px);
+  height: clamp(460px, 48vw, 620px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .photo--profile-main {
-  position: absolute;
-  top: -4%;
-  left: -2%;
-  width: 104%;
-  height: 82%;
-  transform: rotate(-3deg);
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  height: 100%;
+  transform: none;
   z-index: 2;
   background: none;
   border: none;
   box-shadow: none;
   overflow: visible;
-}
-.photo--profile-main[data-photo$=".png"] {
   background-size: contain !important;
   background-repeat: no-repeat;
+  background-position: center;
 }
-.photo--profile-sub1 {
-  position: absolute;
-  bottom: 10%;
-  left: 6%;
-  width: 46%;
-  height: 30%;
-  transform: rotate(4deg);
-  z-index: 3;
-}
-.photo--profile-sub2 {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 44%;
-  height: 34%;
-  transform: rotate(-6deg);
-  z-index: 1;
+.photo--profile-sub1,
+.photo--profile-sub2,
+.profile__plane {
+  display: none;
 }
 .profile__plane {
   position: absolute;
