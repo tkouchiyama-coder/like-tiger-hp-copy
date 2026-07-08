@@ -154,6 +154,39 @@
   <p>&copy; 2026 LikeTiger Inc. All Rights Reserved.</p>
 </footer>
 
+<!-- ============ 旅行記モーダル ============ -->
+<div class="tl-modal" id="tlModal" aria-hidden="true">
+  <div class="tl-modal__overlay" data-close></div>
+  <div class="tl-modal__card" role="dialog" aria-modal="true" aria-labelledby="tlModalTitle">
+    <button class="tl-modal__close" data-close aria-label="閉じる">&times;</button>
+
+    <div class="tl-modal__stamp" id="tlModalFlag" aria-hidden="true">&#x1F30F;</div>
+    <p class="tl-modal__author" id="tlModalAuthor"></p>
+    <h3 class="tl-modal__title" id="tlModalTitle"></h3>
+
+    <div class="tl-modal__body">
+      <p class="tl-modal__story" id="tlModalStory"></p>
+
+      <div class="tl-modal__block" id="tlModalSpotsBlock">
+        <h4 class="tl-modal__label">おすすめスポット</h4>
+        <ul class="tl-modal__list" id="tlModalSpots"></ul>
+      </div>
+
+      <div class="tl-modal__block" id="tlModalFoodBlock">
+        <h4 class="tl-modal__label">食べておきたい</h4>
+        <ul class="tl-modal__list" id="tlModalFood"></ul>
+      </div>
+
+      <div class="tl-modal__block" id="tlModalTipBlock">
+        <h4 class="tl-modal__label">営業マンからの一言</h4>
+        <p class="tl-modal__tip" id="tlModalTip"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/countries.js"></script>
+
 <!-- 共通パーツ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
