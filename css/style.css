@@ -2036,6 +2036,7 @@ body::after {
   letter-spacing: 0.04em;
   line-height: 1.2;
   transform: none;
+  white-space: nowrap;
 }
 
 .lp-home .services__heading-ic {
